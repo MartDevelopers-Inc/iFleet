@@ -1,4 +1,30 @@
 <?php
+   session_start();
+   include('config/config.php');
+
+   //login 
+   if(isset($_POST['login']))
+   {
+       $login_user_email = $_POST['login_user_email'];
+       $login_user_password = sha1(md5($_POST['login_user_password']));//double encrypt to increase security
+       $stmt=$mysqli->prepare("SELECT login_user_email, login_user_password, login_id  FROM iFleet_Login  WHERE login_user_email=? AND login_user_password=?");//sql to log in user
+       $stmt->bind_param('ss',$login_user_email, $login_user_password);//bind fetched parameters
+       $stmt->execute();//execute bind
+       $stmt -> bind_result($login_user_email, $login_user_password, $login_id);//bind result
+       $rs=$stmt->fetch();
+       $_SESSION['login_id'] = $login_id;//assaign session to login id
+       
+       if($rs)
+           {
+               //if its sucessfull
+               header("location:sudo_dashboard.php");
+           }
+
+       else
+           {
+               $err = "Access Denied Please Check Your Credentials";
+           }
+   }
 
   require_once('partials/_head.php');
 ?>
@@ -13,7 +39,7 @@
           <p class="login-box-msg">Sign in to start your session</p>
           <form  method="post">
             <div class="input-group mb-3">
-              <input type="email" name="login_email" class="form-control" placeholder="Email">
+              <input type="email" name="login_user_email" class="form-control" placeholder="Email">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span>
@@ -21,7 +47,7 @@
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" name="login_password" class="form-control" placeholder="Password">
+              <input type="password" name="login_user_password" class="form-control" placeholder="Password">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
