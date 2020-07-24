@@ -25,6 +25,5 @@
 <script src="assets/plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <!-- ChartJS -->
 <script src="assets/plugins/chart.js/Chart.min.js"></script>
-
 <!-- PAGE SCRIPTS -->
 <script src="assets/dist/js/pages/dashboard2.js"></script>
