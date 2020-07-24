@@ -2,6 +2,7 @@
     session_start();
     include('config/config.php');
     require_once('partials/_head.php');
+    
 ?>
     <body class="hold-transition login-page">
         <div class="login-box">
