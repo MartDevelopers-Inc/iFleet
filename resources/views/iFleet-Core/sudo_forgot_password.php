@@ -2,6 +2,41 @@
     session_start();
     include('config/config.php');
     require_once('partials/_head.php');
+    if(isset($_POST['resetPassword']))
+    {
+        if(!filter_var($_POST['login_user_email'], FILTER_VALIDATE_EMAIL))
+        {
+            $err = 'Invalid Email';
+        }
+        $checkEmail = mysqli_query($mysqli, "SELECT `login_user_email` FROM `iFleet_Login` WHERE `login_user_email` = '".$_POST['login_user_email']."'") or exit(mysqli_error($mysqli));
+        if(mysqli_num_rows($checkEmail)) {
+            //exit('This email is already being used');
+            //Reset Password
+            $reset_code = $_POST['reset_code'];
+            $token = sha1(md5($_POST['token']));
+            $status = $_POST['status'];
+            $email = $_POST['email'];
+            $query="INSERT INTO iFleet_PasswordResets (email, reset_code, token, status) VALUES (?,?,?,?)";
+            $reset = $mysqli->prepare($query);
+            $rc=$reset->bind_param('ssss', $email, $reset_code, $token, $status);
+            $reset->execute();
+            if($reset)
+            {
+                $success = "Password Reset Instructions Sent To Your Email";
+                // && header("refresh:1; url=index.php");
+            }
+            else
+            {
+                $err = "Please Try Again Or Try Later";
+            }
+             
+        }
+        else 
+            {
+                $err = "No account with that email";
+            }
+            
+    }
 ?>
     <body class="hold-transition login-page">
         <div class="login-box">
