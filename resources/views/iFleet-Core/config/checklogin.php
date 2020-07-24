@@ -5,8 +5,8 @@ function check_login()
 		{
 			$host = $_SERVER['HTTP_HOST'];
 			$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-			$extra="sudo_index.php";
-			$_SESSION["id"]="";
+			$extra="index.php";
+			$_SESSION["login_id"]="";
 			header("Location: http://$host$uri/$extra");
 			
 		}
