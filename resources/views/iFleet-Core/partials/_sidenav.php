@@ -80,7 +80,7 @@
             <!--Fleet Routes -->
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
+                <i class="nav-icon fas fa-code-branch"></i>
                 <p>
                     Fleet Routes
                     <i class="right fas fa-angle-left"></i>
@@ -119,7 +119,7 @@
             <!-- Fleet -->
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tree"></i>
+                <i class="nav-icon fas fa-car"></i>
                 <p>
                     Fleet 
                     <i class="fas fa-angle-left right"></i>
@@ -157,7 +157,7 @@
             <!-- Shipments -->
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
+                <i class="nav-icon fas fa-luggage-cart"></i>
                 <p>
                     Shipments
                     <i class="fas fa-angle-left right"></i>
@@ -183,7 +183,7 @@
             <!-- Fuel Consumption -->
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
+                <i class="nav-icon fas fa-gas-pump"></i>
                 <p>
                     Fuel Consumption
                     <i class="fas fa-angle-left right"></i>
@@ -226,7 +226,7 @@
             </li>
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                    <i class="nav-icon far fa-envelope"></i>
+                    <i class="nav-icon fas fa-truck"></i>
                     <p>
                         Fleets Records
                         <i class="fas fa-angle-left right"></i>
@@ -249,7 +249,7 @@
             </li>
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-book"></i>
+                    <i class="nav-icon fas fa-shipping-fast"></i>
                     <p>
                         Shipments Records
                         <i class="fas fa-angle-left right"></i>
@@ -272,7 +272,7 @@
             </li>
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                    <i class="nav-icon far fa-plus-square"></i>
+                    <i class="nav-icon fas fa-oil-can"></i>
                     <p>
                         Fuel Records 
                         <i class="fas fa-angle-left right"></i>
@@ -294,6 +294,15 @@
                 </ul>
             </li>
             <!-- ./ Advanced Reporting -->
+            <li class="nav-header">System Settings</li>
+            <li class="nav-item">
+                <a href="sudo_log_out.php" class="nav-link">
+                <i class="nav-icon fas fa-sign-out-alt"></i>
+                <p>
+                    End Session
+                </p>
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
