@@ -66,15 +66,18 @@
                 </li>
             <!-- ./ End Dashboard -->
 
+            <!--HRM-->
             <li class="nav-item">
-                <a href="pages/widgets.html" class="nav-link">
+                <a href="sudo_hrm.php" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                     HRM
                 </p>
                 </a>
             </li>
+            <!-- ./ HRM -->
 
+            <!--Fleet Routes -->
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -85,26 +88,35 @@
                 </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="pages/charts/chartjs.html" class="nav-link">
+                    <a href="sudo_add_route.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>ChartJS</p>
+                    <p>Add Route</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/charts/flot.html" class="nav-link">
+                    <a href="sudo_manage_routes.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Flot</p>
+                    <p>Manage Routes</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="sudo_assign_fleet_route.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Assign Fleet</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/charts/inline.html" class="nav-link">
+                    <a href="sudo_manage_assign_fleet_route.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Inline</p>
+                    <p>Manage Assigns</p>
                     </a>
                 </li>
                 </ul>
             </li>
+            <!-- ./ Fleet Routes -->
 
+            <!-- Fleet -->
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tree"></i>
@@ -114,57 +126,35 @@
                 </p>
                 </a>
                 <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="pages/UI/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>General</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/UI/icons.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Icons</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/UI/buttons.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Buttons</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/UI/sliders.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Sliders</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/UI/modals.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Modals & Alerts</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/UI/navbar.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Navbar & Tabs</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/UI/timeline.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Timeline</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/UI/ribbons.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Ribbons</p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="sudo_add_fleet_category.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Categories</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sudo_manage_fleet_categories.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Manage Categories</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sudo_add_fleet.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Fleet</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sudo_manage_fleet.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Manage Fleet </p>
+                        </a>
+                    </li>
                 </ul>
             </li>
+            <!-- ./ Fleet -->
 
+            <!-- Shipments -->
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
@@ -174,33 +164,23 @@
                 </p>
                 </a>
                 <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>General Elements</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/forms/advanced.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Advanced Elements</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/forms/editors.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Editors</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/forms/validation.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Validation</p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="sudo_add_shipment.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Shipment</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sudo_manage_shipment.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Manage Shipments</p>
+                        </a>
+                    </li>
                 </ul>
             </li>
-
+            <!-- ./ Shipments -->
+            
+            <!-- Fuel Consumption -->
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
@@ -210,39 +190,34 @@
                 </p>
                 </a>
                 <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="pages/tables/simple.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Simple Tables</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/tables/data.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>DataTables</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/tables/jsgrid.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>jsGrid</p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="sudo_gas_stations.php" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Gas Stations</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sudo_fuel_consumptions.php" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Consumptions</p>
+                        </a>
+                    </li>
                 </ul>
             </li>
+            <!-- ./ Fuel Consumption-->
 
+            <!-- Advanced Reporting -->
             <li class="nav-header">Advanced Reporting</li>
             <li class="nav-item">
-                <a href="pages/calendar.html" class="nav-link">
+                <a href="sudo_advanced_reporting_hrm.php" class="nav-link">
                 <i class="nav-icon fas fa-calendar-alt"></i>
                 <p>
                     HRM Records
-                    <span class="badge badge-info right">2</span>
                 </p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="pages/gallery.html" class="nav-link">
+                <a href="sudo_advanced_reporting_fleet_routes.php" class="nav-link">
                 <i class="nav-icon far fa-image"></i>
                 <p>
                     Fleet Routes Records
@@ -251,175 +226,74 @@
             </li>
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
-                <p>
-                    Fleets Records
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-                </a>
+                    <i class="nav-icon far fa-envelope"></i>
+                    <p>
+                        Fleets Records
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                    </a>
                 <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="pages/mailbox/mailbox.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Inbox</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/mailbox/compose.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Compose</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/mailbox/read-mail.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Read</p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="sudo_advanced_reporting_fleet_categories.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Fleet Categories</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sudo_advanced_reporting_fleet_records.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Fleet Records </p>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                    Shipments Records
-                    <i class="fas fa-angle-left right"></i>
-                </p>
+                    <i class="nav-icon fas fa-book"></i>
+                    <p>
+                        Shipments Records
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
                 </a>
                 <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="pages/examples/invoice.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Invoice</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/profile.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Profile</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/e_commerce.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>E-commerce</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/projects.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Projects</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/project_add.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Project Add</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/project_edit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Project Edit</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/project_detail.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Project Detail</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/contacts.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Contacts</p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="sudo_advanced_reporting_incomming_shipments.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Incomming Shipments</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sudo_advanced_reporting_outgoing_shipments.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>OutGoing Shipments</p>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                <i class="nav-icon far fa-plus-square"></i>
-                <p>
-                    Fuel Records 
-                    <i class="fas fa-angle-left right"></i>
-                </p>
+                    <i class="nav-icon far fa-plus-square"></i>
+                    <p>
+                        Fuel Records 
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
                 </a>
                 <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="pages/examples/login.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Login</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/register.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Register</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/forgot-password.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Forgot Password</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/recover-password.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Recover Password</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/lockscreen.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Lockscreen</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/legacy-user-menu.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Legacy User Menu</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/language-menu.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Language Menu</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/404.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Error 404</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/500.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Error 500</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/pace.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Pace</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/examples/blank.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Blank Page</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="starter.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Starter Page</p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="sudo_advanced_reporting_gas_stations.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Gas Stations</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sudo_advanced_reporting_fuel_consumption.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Fuel Consumption</p>
+                        </a>
+                    </li>
                 </ul>
             </li>
+            <!-- ./ Advanced Reporting -->
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
