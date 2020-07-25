@@ -20,12 +20,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>Human Resource Management</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
+              <li class="breadcrumb-item"><a href="sudo_dashboard.php">Dashboard</a></li>
+              <li class="breadcrumb-item active">HRM</li>
             </ol>
           </div>
         </div>
@@ -38,31 +38,49 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">DataTable with default features</h3>
+                <a class="btn btn-outline-success" href="sudo_hrm_add_staff.php">
+                    <span>
+                        <i class="fas fa-user-plus"></i>
+                    </span>
+                    Add New Staff
+                </a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Staff No.</th>
+                  <th>Staff Name</th>
+                  <th>Staff ID No.</th>
+                  <th>Staff Phone</th>
+                  <th>Staff Email</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                </tr>
-                </tfoot>
+                    <?php
+                        //Fetch all Staff In created_at.Desc
+                        $ret="SELECT * FROM  iFleet_Staff"; 
+                        $stmt= $mysqli->prepare($ret) ;
+                        $stmt->execute();
+                        $res=$stmt->get_result();
+                        $cnt=1;
+                        while($staff=$res->fetch_object())
+                        {
+                    ?>
+                        <tr>
+                            <td>
+                                <a class="text_success" href="sudo_hrm_view_profile.php?number=<?php echo $staff->staff_number;?>">
+                                    <?php echo $staff->staff_number;?>
+                                </a>
+                            </td>
+                            <td><?php echo $staff->staff_name;?></td>
+                            <td><?php echo $staff->staff_natid;?></td>
+                            <td><?php echo $staff->staff_phone;?></td>
+                            <td><?php echo $staff->staff_email;?></td>
+                        </tr>
+                    <?php }?>
+                </tbody>
               </table>
             </div>
             <!-- /.card-body -->
