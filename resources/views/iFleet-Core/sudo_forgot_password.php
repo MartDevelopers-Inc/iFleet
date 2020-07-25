@@ -38,6 +38,7 @@
             }
             
     }
+    
     require_once('partials/_head.php');
 ?>
     <body class="hold-transition login-page">
