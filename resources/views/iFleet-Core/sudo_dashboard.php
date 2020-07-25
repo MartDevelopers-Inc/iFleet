@@ -154,11 +154,22 @@
                                     </div>
                                     <div class="card-body p-0">
                                         <ul class="users-list clearfix">
-                                            <li>
-                                                <img src="dist/img/user1-128x128.jpg" alt="User Image">
-                                                <a class="users-list-name" href="#">Alexander Pierce</a>
-                                                <span class="users-list-date">Today</span>
-                                            </li>
+                                            <?php
+                                                //Fetch all Staff In created_at.Desc
+                                                $ret="SELECT * FROM  iFleet_Staff"; 
+                                                $stmt= $mysqli->prepare($ret) ;
+                                                $stmt->execute();
+                                                $res=$stmt->get_result();
+                                                $cnt=1;
+                                                while($staff=$res->fetch_object())
+                                                {
+                                            ?>
+                                                <li>
+                                                    <img class="img-thumbnail" src="assets/dist/img/staff/<?php echo $staff->staff_passport;?>" height="150" width="150" alt="Image">
+                                                    <a class="users-list-name" href="sudo_hrm_view_profile.php?number=<?php echo $staff->staff_number;?>"><?php echo $staff->staff_name;?></a>
+                                                    <span class="users-list-date"><?php echo date('d M Y g:ia', strtotime($staff->created_at));?></span>
+                                                </li>
+                                            <?php }?>
                                         </ul>
                                     </div>
                                     <div class="card-footer text-center">

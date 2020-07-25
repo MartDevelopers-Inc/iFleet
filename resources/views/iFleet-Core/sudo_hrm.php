@@ -55,6 +55,7 @@
                   <th>Staff ID No.</th>
                   <th>Staff Phone</th>
                   <th>Staff Email</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -78,6 +79,17 @@
                             <td><?php echo $staff->staff_natid;?></td>
                             <td><?php echo $staff->staff_phone;?></td>
                             <td><?php echo $staff->staff_email;?></td>
+                            <td>
+                                <a class="badge badge-warning" href="sudo_hrm_update_staff.php?number=<?php echo $staff->staff_number;?>">
+                                    <i class="fas fa-user-edit"></i>
+                                    Update
+                                </a>
+                                <a class="badge badge-danger" href="sudo_hrm.php?delete=<?php echo $staff->staff_id;?>">
+                                    <i class="fas fa-trash"></i>
+                                    Delete
+                                </a>
+                            </td>
+
                         </tr>
                     <?php }?>
                 </tbody>
