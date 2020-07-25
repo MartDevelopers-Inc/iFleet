@@ -166,7 +166,7 @@
                                                 {
                                             ?>
                                                 <li>
-                                                    <img class="img-thumbnail" src="assets/dist/img/staff/<?php echo $staff->staff_passport;?>" height="150" width="150" alt="Image">
+                                                    <img class="img-thumbnail img-rectangle" src="assets/dist/img/staff/<?php echo $staff->staff_passport;?>" height="150" width="150" alt="Image">
                                                     <a class="users-list-name" href="sudo_hrm_view_profile.php?number=<?php echo $staff->staff_number;?>"><?php echo $staff->staff_name;?></a>
                                                     <span class="users-list-date"><?php echo date('d M Y g:ia', strtotime($staff->created_at));?></span>
                                                 </li>
