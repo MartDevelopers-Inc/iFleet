@@ -1,8 +1,8 @@
 <?php
-     session_start();
-     include('config/config.php');
-     include('config/checklogin.php');
-     check_login();
+    session_start();
+    include('config/config.php');
+    include('config/checklogin.php');
+    check_login();
     require_once('partials/_head.php')
 ?>
     <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
