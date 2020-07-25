@@ -90,7 +90,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="exampleInputEmail1">Route Description</label>
-                                <textarea type="text" name="route_description"  class="form-control" ></textarea>
+                                <textarea type="text" rows="5" name="route_description"  class="form-control" ></textarea>
                             </div>
                         </div>
                     </div>
