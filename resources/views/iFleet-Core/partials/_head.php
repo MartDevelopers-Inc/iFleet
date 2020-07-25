@@ -21,4 +21,43 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!--Inject Sweet alerts-->
   <script src="assets/dist/js/swal.js"></script>
+  <?php if(isset($success)) {?>
+    <!--This code for injecting success alert-->
+            <script>
+                        setTimeout(function () 
+                        { 
+                            swal({
+                                    title: 'Success',
+                                    text: "<?php echo $success;?>",
+                                    type: 'success',
+                                    padding: '2em'
+                                })
+                        },
+                            100);
+                        
+            </script>
+
+    <?php } ?>
+    <?php if(isset($err)) {?>
+    <!--This code for injecting error alert-->
+            <script>
+                        setTimeout(function () 
+                        { 
+                            swal("Failed","<?php echo $err;?>","error");
+                        },
+                            100);
+            </script>
+
+    <?php } ?>
+    <?php if(isset($info)) {?>
+    <!--This code for injecting info alert-->
+            <script>
+                        setTimeout(function () 
+                        { 
+                            swal("Success","<?php echo $info;?>","info");
+                        },
+                            100);
+            </script>
+
+    <?php } ?>
 </head>
