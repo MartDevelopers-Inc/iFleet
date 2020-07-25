@@ -3,6 +3,89 @@
     include('config/config.php');
     include('config/checklogin.php');
     check_login();
+    
+    if(isset($_POST['add_staff']))
+    {
+            $error = 0;
+            if (isset($_POST['staff_name']) && !empty($_POST['staff_name'])) {
+                $staff_name=mysqli_real_escape_string($mysqli,trim($_POST['staff_name']));
+            }else{
+                $error = 1;
+                $err="Name Cannot Be Empty";
+            }
+            if (isset($_POST['staff_natid']) && !empty($_POST['staff_natid'])) {
+                $staff_natid=mysqli_real_escape_string($mysqli,trim($_POST['staff_natid']));
+            }else{
+                $error = 1;
+                $err="National ID Number Cannot Be empty";
+            }
+            if (isset($_POST['staff_phone']) && !empty($_POST['staff_phone'])) {
+                $staff_phone=mysqli_real_escape_string($mysqli,trim($_POST['staff_phone']));
+            }else{
+                $error = 1;
+                $err="Phone Number Cannot Be Empty";
+            }
+            if (isset($_POST['staff_email']) && !empty($_POST['staff_email'])) {
+                $staff_email=mysqli_real_escape_string($mysqli,trim($_POST['staff_email']));
+            }else{
+                $error = 1;
+                $err="Email Cannot Be Empty";
+            }
+            if (isset($_POST['staff_dob']) && !empty($_POST['staff_dob'])) {
+                $staff_dob=mysqli_real_escape_string($mysqli,trim($_POST['staff_dob']));
+            }else{
+                $error = 1;
+                $err="DOB Cannot Be Empty";
+            }
+                        
+            if(!$error)
+            {
+                $sql="SELECT * FROM  iFleet_Staff WHERE  staff_email='$staff_email' || staff_natiid='$staff_natid' ";
+                $res=mysqli_query($mysqli,$sql);
+                if (mysqli_num_rows($res) > 0) {
+                $row = mysqli_fetch_assoc($res);
+                if ($staff_natid == $row['staff_natid'])
+                {
+                    $err =  "National ID Number Exists";
+                }
+                else
+                {
+                    $err =  "Email Address Already Taken";
+                }
+            }
+            else
+            {
+                $staff_name = $_POST['staff_name'];
+                $staff_number = $_POST['staff_number'];
+                $staff_natid = $_POST['staff_natid'];
+                $staff_phone = $_POST['staff_phone'];
+                $staff_email = $_POST['staff_email'];
+                $staff_gender = $_POST['staff_gender'];
+                $staff_dob = $_POST['staff_dob'];                
+                $staff_passport = $_FILES["staff_passport"]["name"];
+                move_uploaded_file($_FILES["staff_passport"]["tmp_name"],"assets/dist/img/staff/".$_FILES["staff_passport"]["name"]);
+                $staff_bio = $_POST['staff_bio'];
+                $staff_address = $_POST['staff_address'];               
+
+                //Insert Captured information to a database table
+                $postQuery="INSERT INTO iFleet_Staff (staff_name, staff_number, staff_natid, staff_phone, staff_email, staff_gender, staff_dob, staff_passport, staff_bio, staff_address) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                $postStmt = $mysqli->prepare($postQuery);
+                //bind paramaters
+                $rc=$postStmt->bind_param('ssssssssss', $staff_name, $staff_number, $staff_natid, $staff_phone, $staff_email, $staff_gender, $staff_dob, $staff_passport, $staff_bio, $staff_address);
+                $postStmt->execute();
+                //declare a varible which will be passed to alert function
+                if($postStmt)
+                {
+                 $success = "Staff Added" && header("refresh:1; url=sudo_hrm.php");
+                }
+                else 
+                {
+                    $err = "Please Try Again Or Try Later";
+                } 
+            }
+        }    
+            
+    }
     require_once('partials/_head.php');
     require_once('partials/_codeGen.php');
 ?>
@@ -44,7 +127,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form role="form" >
+                <form role="form" enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="form-row">
                             <div class="form-group col-md-6">
