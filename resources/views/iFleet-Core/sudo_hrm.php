@@ -3,6 +3,25 @@
     include('config/config.php');
     include('config/checklogin.php');
     check_login();
+
+    //Delete Staff
+    if(isset($_GET['delete']))
+    {
+          $id=intval($_GET['delete']);
+          $adn="DELETE FROM  iFleet_Staff  WHERE  staff_id = ?";
+          $stmt= $mysqli->prepare($adn);
+          $stmt->bind_param('i',$id);
+          $stmt->execute();
+          $stmt->close();	 
+         if($stmt)
+         {
+             $success = "Deleted" && header("refresh:1; url=sudo_hrm.php");
+         }
+         else
+         {
+             $err = "Try Again Later";
+         }
+      }
     require_once('partials/_head.php');
 ?>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -50,11 +69,12 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Staff No.</th>
-                  <th>Staff Name</th>
-                  <th>Staff ID No.</th>
-                  <th>Staff Phone</th>
-                  <th>Staff Email</th>
+                  <th>No.</th>
+                  <th>Name</th>
+                  <th>ID No.</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -79,6 +99,32 @@
                             <td><?php echo $staff->staff_natid;?></td>
                             <td><?php echo $staff->staff_phone;?></td>
                             <td><?php echo $staff->staff_email;?></td>
+                            <td>
+                              <?php
+                                  if($staff->staff_acc_status == 'Active')
+                                  {
+                                      echo 
+                                      "
+                                          <span class='text-success'>$staff->staff_acc_status</span>
+                                      
+                                      ";
+                                  }
+                                  else if($staff->staff_acc_status == 'Dormant')
+                                  {
+                                      echo 
+                                      "
+                                          <span class='text-warning'>$staff->staff_acc_status</span>
+                                      ";
+                                  }
+                                  else
+                                  {
+                                      echo 
+                                      "
+                                          <span class='text-danger'>$staff->staff_acc_status</span>
+                                      ";
+                                  }
+                              ?>  
+                            </td>
                             <td>
                                 <a class="badge badge-warning" href="sudo_hrm_update_staff.php?number=<?php echo $staff->staff_number;?>">
                                     <i class="fas fa-user-edit"></i>
