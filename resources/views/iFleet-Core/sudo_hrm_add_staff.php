@@ -40,7 +40,7 @@
                         
             if(!$error)
             {
-                $sql="SELECT * FROM  iFleet_Staff WHERE  staff_email='$staff_email' || staff_natiid='$staff_natid' ";
+                $sql="SELECT * FROM  iFleet_Staff WHERE  staff_email='$staff_email' || staff_natid='$staff_natid' ";
                 $res=mysqli_query($mysqli,$sql);
                 if (mysqli_num_rows($res) > 0) {
                 $row = mysqli_fetch_assoc($res);
@@ -65,13 +65,13 @@
                 $staff_passport = $_FILES["staff_passport"]["name"];
                 move_uploaded_file($_FILES["staff_passport"]["tmp_name"],"assets/dist/img/staff/".$_FILES["staff_passport"]["name"]);
                 $staff_bio = $_POST['staff_bio'];
-                $staff_address = $_POST['staff_address'];               
+                $staff_adr = $_POST['staff_adr'];               
 
                 //Insert Captured information to a database table
-                $postQuery="INSERT INTO iFleet_Staff (staff_name, staff_number, staff_natid, staff_phone, staff_email, staff_gender, staff_dob, staff_passport, staff_bio, staff_address) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                $postQuery="INSERT INTO iFleet_Staff (staff_name, staff_number, staff_natid, staff_phone, staff_email, staff_gender, staff_dob, staff_passport, staff_bio, staff_adr) VALUES (?,?,?,?,?,?,?,?,?,?)";
                 $postStmt = $mysqli->prepare($postQuery);
                 //bind paramaters
-                $rc=$postStmt->bind_param('ssssssssss', $staff_name, $staff_number, $staff_natid, $staff_phone, $staff_email, $staff_gender, $staff_dob, $staff_passport, $staff_bio, $staff_address);
+                $rc=$postStmt->bind_param('ssssssssss', $staff_name, $staff_number, $staff_natid, $staff_phone, $staff_email, $staff_gender, $staff_dob, $staff_passport, $staff_bio, $staff_adr);
                 $postStmt->execute();
                 //declare a varible which will be passed to alert function
                 if($postStmt)
@@ -127,7 +127,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form role="form" enctype="multipart/form-data">
+                <form role="form" method='post' enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -185,7 +185,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputPassword1">Address</label>
-                                <textarea type="text" class="form-control" rows="5"  name="staff_address"></textarea>
+                                <textarea type="text" class="form-control" rows="5"  name="staff_adr"></textarea>
                             </div>
                         </div>
                     </div>
