@@ -3,7 +3,7 @@
     include('config/config.php');
     include('config/checklogin.php');
     check_login();
-    
+
     //Delete Staff
     if(isset($_GET['delete']))
     {
@@ -74,6 +74,7 @@
                   <th>Staff ID No.</th>
                   <th>Staff Phone</th>
                   <th>Staff Email</th>
+                  <th>Created At</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -98,6 +99,7 @@
                             <td><?php echo $staff->staff_natid;?></td>
                             <td><?php echo $staff->staff_phone;?></td>
                             <td><?php echo $staff->staff_email;?></td>
+                            <td><?php echo date('d / M / Y', strtotime($staff->created_at));?></td>
                             <td>
                                 <a class="badge badge-warning" href="sudo_hrm_update_staff.php?number=<?php echo $staff->staff_number;?>">
                                     <i class="fas fa-user-edit"></i>
