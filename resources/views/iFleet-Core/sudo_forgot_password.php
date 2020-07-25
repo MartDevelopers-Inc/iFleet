@@ -1,24 +1,25 @@
 <?php
     session_start();
     include('config/config.php');
-    require_once('partials/_head.php');
-    if(isset($_POST['resetPassword']))
+    require_once('partials/_codeGen.php');
+
+    if(isset($_POST['reset_pwd']))
     {
-        if(!filter_var($_POST['login_user_email'], FILTER_VALIDATE_EMAIL))
+        if(!filter_var($_POST['reset_email'], FILTER_VALIDATE_EMAIL))
         {
             $err = 'Invalid Email';
         }
-        $checkEmail = mysqli_query($mysqli, "SELECT `login_user_email` FROM `iFleet_Login` WHERE `login_user_email` = '".$_POST['login_user_email']."'") or exit(mysqli_error($mysqli));
+        $checkEmail = mysqli_query($mysqli, "SELECT `login_user_email` FROM `iFleet_Login` WHERE `login_user_email` = '".$_POST['reset_email']."'") or exit(mysqli_error($mysqli));
         if(mysqli_num_rows($checkEmail)) {
             //exit('This email is already being used');
             //Reset Password
             $reset_code = $_POST['reset_code'];
-            $token = sha1(md5($_POST['token']));
-            $status = $_POST['status'];
-            $email = $_POST['email'];
-            $query="INSERT INTO iFleet_PasswordResets (email, reset_code, token, status) VALUES (?,?,?,?)";
+            $reset_token = sha1(md5($_POST['reset_token']));
+            $reset_status = $_POST['reset_status'];
+            $reset_email = $_POST['reset_email'];
+            $query="INSERT INTO iFleet_PasswordResets (reset_email, reset_code, reset_token, reset_status) VALUES (?,?,?,?)";
             $reset = $mysqli->prepare($query);
-            $rc=$reset->bind_param('ssss', $email, $reset_code, $token, $status);
+            $rc=$reset->bind_param('ssss', $reset_email, $reset_code, $reset_token, $reset_status);
             $reset->execute();
             if($reset)
             {
@@ -37,6 +38,8 @@
             }
             
     }
+    
+    require_once('partials/_head.php');
 ?>
     <body class="hold-transition login-page">
         <div class="login-box">
@@ -49,12 +52,17 @@
 
                 <form  method="post">
                     <div class="input-group mb-3">
-                    <input type="email" name="email" class="form-control" placeholder="Email">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                        <span class="fas fa-envelope"></span>
+                        <input type="email" name="reset_email" class="form-control" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                            </div>
                         </div>
                     </div>
+                    <div style="display:none">
+                        <input type="text" value="<?php echo $tk;?>" name="reset_token">
+                        <input type="text" value="<?php echo $rc;?>" name="reset_code">
+                        <input type="text" value="Pending" name="reset_status">
                     </div>
                     <div class="row">
                     <div class="col-12">
