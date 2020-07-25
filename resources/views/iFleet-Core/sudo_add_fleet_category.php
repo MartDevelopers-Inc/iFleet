@@ -90,7 +90,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="exampleInputEmail1">Category Description</label>
-                                <textarea type="text" rows="5" name="category_description"  class="form-control" ></textarea>
+                                <textarea type="text" rows="5" name="category_desc"  class="form-control" ></textarea>
                             </div>
                         </div>
                     </div>
