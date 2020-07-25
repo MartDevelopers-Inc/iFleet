@@ -1,7 +1,6 @@
 <?php
     session_start();
     include('config/config.php');
-    require_once('partials/_head.php');
     require_once('partials/_codeGen.php');
 
     if(isset($_POST['reset_pwd']))
@@ -39,6 +38,7 @@
             }
             
     }
+    require_once('partials/_head.php');
 ?>
     <body class="hold-transition login-page">
         <div class="login-box">
