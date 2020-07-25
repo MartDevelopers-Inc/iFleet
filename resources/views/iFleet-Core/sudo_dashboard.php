@@ -147,7 +147,7 @@
                                     <div class="card-header">
                                         <h3 class="card-title">Recently Employed Staff</h3>
                                         <div class="card-tools">
-                                            <span class="badge badge-danger">8 New Members</span>
+                                            <span class="badge badge-success"> New Members</span>
                                             <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
                                             </button>
                                         </div>
@@ -156,7 +156,7 @@
                                         <ul class="users-list clearfix">
                                             <?php
                                                 //Fetch all Staff In created_at.Desc
-                                                $ret="SELECT * FROM  iFleet_Staff"; 
+                                                $ret="SELECT * FROM `iFleet_Staff` ORDER BY `iFleet_Staff`.`created_at` DESC "; 
                                                 $stmt= $mysqli->prepare($ret) ;
                                                 $stmt->execute();
                                                 $res=$stmt->get_result();
