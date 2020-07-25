@@ -2,6 +2,7 @@
     session_start();
     include('config/config.php');
     include('config/checklogin.php');
+    require_once('partials/_analytics.php');
     check_login();
     require_once('partials/_head.php')
 ?>
@@ -43,7 +44,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text">Staffs</span>
                             <span class="info-box-number">
-                            10
+                                <?php echo $staff;?>
                             </span>
                         </div>
                     </div>
@@ -147,7 +148,7 @@
                                     <div class="card-header">
                                         <h3 class="card-title">Recently Employed Staff</h3>
                                         <div class="card-tools">
-                                            <span class="badge badge-success"> New Members</span>
+                                            <span class="badge badge-success"><?php echo $staff;?> New Members</span>
                                             <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
                                             </button>
                                         </div>
@@ -156,7 +157,7 @@
                                         <ul class="users-list clearfix">
                                             <?php
                                                 //Fetch all Staff In created_at.Desc
-                                                $ret="SELECT * FROM `iFleet_Staff` ORDER BY `iFleet_Staff`.`created_at` DESC "; 
+                                                $ret="SELECT * FROM `iFleet_Staff` ORDER BY `iFleet_Staff`.`created_at` DESC LIMIT 5 "; 
                                                 $stmt= $mysqli->prepare($ret) ;
                                                 $stmt->execute();
                                                 $res=$stmt->get_result();
@@ -173,7 +174,7 @@
                                         </ul>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <a href="">View All Users</a>
+                                        <a href="sudo_hrm.php">View All</a>
                                     </div>
                                 </div>
                             </div>
