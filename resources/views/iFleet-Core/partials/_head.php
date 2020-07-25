@@ -26,12 +26,7 @@
             <script>
                         setTimeout(function () 
                         { 
-                            swal({
-                                    title: 'Success',
-                                    text: "<?php echo $success;?>",
-                                    type: 'success',
-                                    padding: '2em'
-                                })
+                            swal("Success","<?php echo $success;?>","success");
                         },
                             100);
                         
