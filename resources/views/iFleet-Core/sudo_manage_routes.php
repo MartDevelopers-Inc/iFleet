@@ -60,7 +60,7 @@
             <div class="card-header">
                 <a class="btn btn-outline-success" href="sudo_add_route.php">
                     <span>
-                        <i class="fas fa-user-plus"></i>
+                        <i class="fas fa-plus"></i>
                     </span>
                     Register New Fleet Route
                 </a>
