@@ -43,7 +43,7 @@
                     <span>
                         <i class="fas fa-plus"></i>
                     </span>
-                    Register New Fleet
+                    Register New Fleet Category
                 </a>
             </div>
             <!-- /.card-header -->
@@ -75,7 +75,7 @@
                             </td>
                             <td><?php echo $category->category_name;?></td>
                             <td>
-                                <a class="badge badge-success" href="sudo_add_fleet.php?code=<?php echo $category->category_code;?>">
+                                <a class="badge badge-success" href="sudo_add_fleet.php?fleet_category_id=<?php echo $category->category_id;?>&fleet_category_name=<?php echo $category->category_name;?>">
                                     <i class="fas fa-car"></i><i class="fas fa-plus"></i>
                                     Add Fleet 
                                 </a>
