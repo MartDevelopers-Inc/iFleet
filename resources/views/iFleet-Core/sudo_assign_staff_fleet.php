@@ -76,6 +76,7 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+    <?php }?>
 
     <!-- Main content -->
     <section class="content">
@@ -87,12 +88,13 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form role="form" method='post' enctype="multipart/form-data">
+                <form role="form" method='post'>
                     <div class="card-body">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Staff Number</label>
-                                <select class='form-control' name="fleet_staff_number">
+                                <select class='form-control' onChange="getStaffDetails(this.value);" id="staffNun" name="fleet_staff_number">
+                                    <option> Select Staff Number</option>
                                     <?php 
                                         $ret="SELECT * FROM  iFleet_Staff"; 
                                         $stmt= $mysqli->prepare($ret) ;
@@ -101,8 +103,9 @@
                                         while($staff=$res->fetch_object())
                                         {
                                     ?>
-                                        <option><?php echo $staff->staff_number;?></option>
-                                    <?php }}?>
+                                        <option value="<?php echo $staff->staff_number;?>" > <?php echo $staff->staff_number;?> </option>
+
+                                    <?php }?>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -111,7 +114,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputPassword1">Staff Id</label>
-                                <input type="text" class="form-control" id="staffID" readonly name="fleet_staff_id"">
+                                <input type="text" class="form-control" id="staffID" readonly name="fleet_staff_id">
                             </div>
                         </div>
                         

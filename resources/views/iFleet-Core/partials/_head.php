@@ -58,4 +58,22 @@
             </script>
 
     <?php } ?>
+    <script>
+        function getStaffDetails(val)
+        {
+            //get staff values
+            $.ajax({
+
+                type: "POST"
+                url: "ajax.php",
+                data:'staffNum='+val,
+                success: function(data)
+                {
+                    //alert(data);
+                    $('#staffName').val(data);
+                }
+            });
+            
+        }
+    </script>  
 </head>
