@@ -3,6 +3,7 @@
     include('config/config.php');
     include('config/checklogin.php');
     check_login();
+    
     require_once('partials/_head.php');
 ?>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -94,7 +95,7 @@
                                     <i class="fas fa-eye"></i><i class="fas fa-car"></i>
                                     View Fleet 
                                 </a>
-                                <a class="badge badge-danger" href="sudo_view_fleets.php?delete=<?php echo $fleet->fleet_id;?>">
+                                <a class="badge badge-danger" href="sudo_manage_fleet.php?delete=<?php echo $fleet->fleet_id;?>">
                                     <i class="fas fa-trash"></i><i class="fas fa-car"></i>
                                     Delete Fleet
                                 </a>

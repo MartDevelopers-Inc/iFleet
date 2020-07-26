@@ -3,6 +3,24 @@
     include('config/config.php');
     include('config/checklogin.php');
     check_login();
+    //Delete Fleet From Fleet Category
+    if(isset($_GET['delete']))
+    {
+          $id=intval($_GET['delete']);
+          $adn="DELETE FROM  iFleet_fleet  WHERE  fleet_id = ?";
+          $stmt= $mysqli->prepare($adn);
+          $stmt->bind_param('i',$id);
+          $stmt->execute();
+          $stmt->close();	 
+         if($stmt)
+         {
+             $success = "Deleted" && header("refresh:1; url=sudo_manage_fleet.php");
+         }
+         else
+         {
+             $err = "Try Again Later";
+         }
+      }
     require_once('partials/_head.php');
 ?>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">

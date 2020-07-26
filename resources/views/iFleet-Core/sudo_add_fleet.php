@@ -6,7 +6,7 @@
     
     if(isset($_POST['add_fleet']))
     {
-            if ( empty($_POST["fleet_name"]) || empty($_POST[" vehicle_numbers"]) ) 
+            if ( empty($_POST["fleet_name"]) || empty($_POST["vehicle_numbers"]) ) 
             {
                 $err="Blank Values Not Accepted, Please Say Something 😬!";
             }
