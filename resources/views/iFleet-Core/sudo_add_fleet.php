@@ -46,7 +46,16 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-    <?php require_once('partials/_sidenav.php');?>
+    <?php 
+        require_once('partials/_sidenav.php');
+        $fleet_category_id = $_GET['fleet_category_id'];
+        $ret="SELECT * FROM  iFleet_category WHERE category_id = '$fleet_category_id'"; 
+        $stmt= $mysqli->prepare($ret) ;
+        $stmt->execute();
+        $res=$stmt->get_result();
+        while($category=$res->fetch_object())
+        {
+    ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -115,7 +124,7 @@
       </div>
     </section>
   </div>
-  <?php require_once('partials/_footer.php');?>
+  <?php require_once('partials/_footer.php'); }?>
 </div>
 <?php require_once("partials/_scripts.php");?>
 </body>
