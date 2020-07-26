@@ -93,7 +93,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Staff Number</label>
-                                <select class='form-control' onChange="getStaffDetails(this.value);" id="staffNun" name="fleet_staff_number">
+                                <select class='form-control' onChange="StaffDetails(this.value);" id="staffNumber" name="fleet_staff_number">
                                     <option> Select Staff Number</option>
                                     <?php 
                                         $ret="SELECT * FROM  iFleet_Staff"; 
@@ -104,17 +104,16 @@
                                         {
                                     ?>
                                         <option value="<?php echo $staff->staff_number;?>" > <?php echo $staff->staff_number;?> </option>
-
                                     <?php }?>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputPassword1">Staff Name</label>
-                                <input type="text" class="form-control" id="staffName" readonly name="fleet_staff_name">
+                                <input type="text" class="form-control" id="staffName"  readonly name="fleet_staff_name">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputPassword1">Staff Id</label>
-                                <input type="text" class="form-control" id="staffID" readonly name="fleet_staff_id">
+                                <input type="text" class="form-control" id="staffId" readonly name="fleet_staff_id">
                             </div>
                         </div>
                         
