@@ -126,7 +126,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="sudo_add_fleet.php" class="nav-link">
+                        <a href="sudo_get_fleet_categories.php" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Add Fleet</p>
                         </a>
