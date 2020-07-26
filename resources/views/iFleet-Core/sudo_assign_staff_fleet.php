@@ -19,7 +19,7 @@
             $fleet_staff_id = $_POST['fleet_staff_id'];
             
             //Insert Captured information to a database table
-            $postQuery="UPDATE  iFleet_Route SET  fleet_staff_name =?, fleet_staff_number =?, fleet_staff_id =? WHERE fleet_id =? ";
+            $postQuery="UPDATE  iFleet_fleet SET  fleet_staff_name =?, fleet_staff_number =?, fleet_staff_id =? WHERE fleet_id =? ";
             $postStmt = $mysqli->prepare($postQuery);
             //bind paramaters
             $rc=$postStmt->bind_param('sssi', $fleet_staff_name, $fleet_staff_number, $fleet_staff_id, $fleet_id);
@@ -93,7 +93,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Staff Number</label>
-                                <select class='form-control' onChange="StaffDetails(this.value);" id="staffNumber" name="fleet_staff_number">
+                                <select class='form-control' id="staffNumber"  onChange="Staff_Details(this.value);"  name="fleet_staff_number">
                                     <option> Select Staff Number</option>
                                     <?php 
                                         $ret="SELECT * FROM  iFleet_Staff"; 
@@ -103,13 +103,13 @@
                                         while($staff=$res->fetch_object())
                                         {
                                     ?>
-                                        <option value="<?php echo $staff->staff_number;?>" > <?php echo $staff->staff_number;?> </option>
+                                        <option> <?php echo $staff->staff_number;?> </option>
                                     <?php }?>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputPassword1">Staff Name</label>
-                                <input type="text" class="form-control" id="staffName"  readonly name="fleet_staff_name">
+                                <input type="text" class="form-control" id="StaffName"  readonly name="fleet_staff_name">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputPassword1">Staff Id</label>
@@ -120,7 +120,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <button type="submit" name="add_route" class="btn btn-outline-primary"><i class="fas fa-save"></i> Save</button>
+                        <button type="submit" name="assign_Fleet" class="btn btn-outline-primary"><i class="fas fa-save"></i> Save</button>
                     </div>
                 </form>
             </div>

@@ -59,25 +59,24 @@
 
     <?php } ?>
     <script>
-        function StaffDetails(val)
+        function Staff_Details(val)
         {
-            //get staff values
             $.ajax({
 
-                type: "POST",
-                url: "ajax.php",
-                data:'staffNumber='+val,
-                success: function(data)
-                {
-                    //alert(data);
-                    $('#staffName').val(data);
-                }
+            type: "POST",
+            url: "ajax.php",
+            data:'staffNumber='+val,
+            success: function(data)
+            {
+            //alert(data);
+            $('#StaffName').val(data);
+            }
             });
 
             $.ajax({
                 type: "POST",
                 url: "ajax.php",
-                data:'staffName='+val,
+                data:'staff_Name='+val,
                 success: function(data)
                 {
                     //alert(data);

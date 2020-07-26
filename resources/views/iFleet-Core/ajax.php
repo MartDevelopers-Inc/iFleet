@@ -5,7 +5,6 @@ if(!empty($_POST["staffNumber"]))
 {
     //get staff name
     $id=$_POST['staffNumber'];
-    echo $id;
     $stmt = $DB_con->prepare("SELECT * FROM  iFleet_Staff WHERE staff_number = :id");
     $stmt->execute(array(':id' => $id));
 ?>
@@ -19,12 +18,11 @@ if(!empty($_POST["staffNumber"]))
 }
 
 
-if(!empty($_POST["staffName"])) 
+if(!empty($_POST["staff_Name"])) 
 {
     //get staff n
-    $id=$_POST['staffName'];
-    echo $id;
-    $stmt = $DB_con->prepare("SELECT * FROM  iFleet_Staff WHERE staff_name = :id");
+    $id=$_POST['staff_Name'];
+    $stmt = $DB_con->prepare("SELECT * FROM  iFleet_Staff WHERE staff_number = :id");
     $stmt->execute(array(':id' => $id));
 ?>
 <?php
