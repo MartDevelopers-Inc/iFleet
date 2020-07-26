@@ -25,7 +25,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="sudo_dashboard.php">Dashboard</a></li>
-              <li class="breadcrumb-item"><a href="sudo_get_fleet_categories.php">Fleet</a></li>
+              <li class="breadcrumb-item"><a href="sudo_manage_fleet.php">Fleet</a></li>
               <li class="breadcrumb-item active">Fleet Categories</li>
             </ol>
           </div>
@@ -78,6 +78,10 @@
                                 <a class="badge badge-success" href="sudo_add_fleet.php?fleet_category_id=<?php echo $category->category_id;?>&fleet_category_name=<?php echo $category->category_name;?>">
                                     <i class="fas fa-car"></i><i class="fas fa-plus"></i>
                                     Add Fleet 
+                                </a>
+                                <a class="badge badge-primary" href="sudo_view_fleets.php?fleet_category_id=<?php echo $category->category_id;?>&fleet_category_name=<?php echo $category->category_name;?>">
+                                    <i class="fas fa-eye"></i><i class="fas fa-car"></i>
+                                    View Fleets
                                 </a>
                             </td>
                         </tr>
