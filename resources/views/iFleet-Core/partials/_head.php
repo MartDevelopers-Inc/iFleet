@@ -58,4 +58,32 @@
             </script>
 
     <?php } ?>
+    <script>
+        function Staff_Details(val)
+        {
+            $.ajax({
+
+            type: "POST",
+            url: "ajax.php",
+            data:'staffNumber='+val,
+            success: function(data)
+            {
+            //alert(data);
+            $('#StaffName').val(data);
+            }
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "ajax.php",
+                data:'staff_Name='+val,
+                success: function(data)
+                {
+                    //alert(data);
+                    $('#staffId').val(data);
+                }
+            });
+            
+        }
+    </script>  
 </head>

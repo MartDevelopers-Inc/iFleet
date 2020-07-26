@@ -6,13 +6,12 @@
     
     if(isset($_POST['add_fleet_category']))
     {
-            $error = 0;
-            if (isset($_POST['category_name']) && !empty($_POST['category_name'])) {
-                $category_name=mysqli_real_escape_string($mysqli,trim($_POST['category_name']));
-            }else{
-                $error = 1;
-                $err="Fleet Category Name Cannot Be Empty";
-            }                        
+        if ( empty($_POST["category_name"])) 
+        {
+            $err="Category Name Can Not Be Blank, Please Say Something 😬!";
+        }
+        else
+        {                         
             
             $category_name = $_POST['category_name'];
             $category_code = $_POST['category_code'];
@@ -32,8 +31,9 @@
             else 
             {
                 $err = "Please Try Again Or Try Later";
-            } 
-        }
+            }
+        } 
+      }
     require_once('partials/_head.php');
     require_once('partials/_codeGen.php');
 ?>
