@@ -91,6 +91,27 @@
                             <td><?php echo $fleet->vehicle_numbers;?> Automobiles</td>
                             <th><?php echo $fleet->fleet_staff_name;?></th>
                             <td>
+                              <?php
+                                if ($fleet->fleet_staff_name == ''|| $fleet->fleet_staff_number == '' || $fleet->fleet_staff_id =='' )
+                        
+                                {
+                                  echo
+                                  "
+                                    <a class='badge badge-success'href='sudo_assign_staff_fleet.php?fleet_id=$fleet->fleet_id'>
+                                      <i class='fas fa-check'></i> <i class='fas fa-user'></i>  
+                                        Assign Staff
+                                    </a>
+                                  ";
+                                }
+                                else
+                                {
+                                  echo
+                                  //nothing -> silence is the best answer
+                                  "
+                                  ";
+                                }
+                              ?>
+                                
                                 <a class="badge badge-success" href="sudo_view_single_fleet.php?fleet_id=<?php echo $fleet->fleet_id;?>">
                                     <i class="fas fa-eye"></i><i class="fas fa-car"></i>
                                     View Fleet 
@@ -99,6 +120,7 @@
                                     <i class="fas fa-trash"></i><i class="fas fa-car"></i>
                                     Delete Fleet
                                 </a>
+
                             </td>
                         </tr>
                     <?php }}?>
