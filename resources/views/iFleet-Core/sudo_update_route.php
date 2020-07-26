@@ -6,13 +6,12 @@
     
     if(isset($_POST['update_route']))
     {
-            $error = 0;
-            if (isset($_POST['route_name']) && !empty($_POST['route_name'])) {
-                $route_name=mysqli_real_escape_string($mysqli,trim($_POST['route_name']));
-            }else{
-                $error = 1;
-                $err="Route Name Cannot Be Empty";
-            }                        
+          if ( empty($_POST["route_name"])) 
+          {
+              $err="Route Name Can Not Be Blank, Please Say Something 😬!";
+          }
+          else
+          {                        
             
             $code = $_GET['code'];
             $route_name = $_POST['route_name'];
@@ -32,7 +31,8 @@
             else 
             {
                 $err = "Please Try Again Or Try Later";
-            } 
+            }
+          } 
         }
     require_once('partials/_head.php');
     require_once('partials/_codeGen.php');

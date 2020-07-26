@@ -6,39 +6,33 @@
     
     if(isset($_POST['add_fleet']))
     {
-            $error = 0;
-            if (isset($_POST['fleet_name']) && !empty($_POST['fleet_name'])) {
-                $fleet_name=mysqli_real_escape_string($mysqli,trim($_POST['fleet_name']));
-            }else{
-                $error = 1;
-                $err="Fleet  Name Cannot Be Empty";
-            }
-            if (isset($_POST['vehicle_numbers']) && !empty($_POST['vehicle_numbers'])) {
-                $vehicle_numbers=mysqli_real_escape_string($mysqli,trim($_POST['vehicle_numbers']));
-            }else{
-                $error = 1;
-                $err="Fleet Cannot have No Vehicles";
-            }                        
-            $fleet_code = $_POST['fleet_code'];
-            $fleet_category_id = $_GET['fleet_category_id'];
-            $fleet_category_name = $_GET['fleet_category_name'];
-            $fleet_name = $_POST['fleet_name'];
-            $fleet_desc = $_POST['fleet_desc'];
-            $vehicle_numbers= $_POST['vehicle_numbers'];
-            //Insert Captured information to a database table
-            $postQuery="INSERT INTO iFleet_fleet (fleet_code, fleet_category_id, fleet_category_name, fleet_name, fleet_desc, vehicle_numbers) VALUES (?,?,?,?,?,?) ";
-            $postStmt = $mysqli->prepare($postQuery);
-            //bind paramaters
-            $rc=$postStmt->bind_param('ssssss', $fleet_code, $fleet_category_id, $fleet_category_name, $fleet_name, $fleet_desc, $vehicle_numbers);
-            $postStmt->execute();
-            //declare a varible which will be passed to alert function
-            if($postStmt)
+            if ( empty($_POST["fleet_name"]) || empty($_POST[" vehicle_numbers"]) ) 
             {
-                $success = "Fleet Added" && header("refresh:1; url=sudo_add_fleet.php?fleet_category_id=$fleet_category_id&fleet_category_name=$fleet_category_name");
+                $err="Blank Values Not Accepted, Please Say Something 😬!";
             }
-            else 
-            {
-                $err = "Please Try Again Or Try Later";
+            else
+            {                         
+                $fleet_code = $_POST['fleet_code'];
+                $fleet_category_id = $_GET['fleet_category_id'];
+                $fleet_category_name = $_GET['fleet_category_name'];
+                $fleet_name = $_POST['fleet_name'];
+                $fleet_desc = $_POST['fleet_desc'];
+                $vehicle_numbers= $_POST['vehicle_numbers'];
+                //Insert Captured information to a database table
+                $postQuery="INSERT INTO iFleet_fleet (fleet_code, fleet_category_id, fleet_category_name, fleet_name, fleet_desc, vehicle_numbers) VALUES (?,?,?,?,?,?) ";
+                $postStmt = $mysqli->prepare($postQuery);
+                //bind paramaters
+                $rc=$postStmt->bind_param('ssssss', $fleet_code, $fleet_category_id, $fleet_category_name, $fleet_name, $fleet_desc, $vehicle_numbers);
+                $postStmt->execute();
+                //declare a varible which will be passed to alert function
+                if($postStmt)
+                {
+                    $success = "Fleet Added" && header("refresh:1; url=sudo_add_fleet.php?fleet_category_id=$fleet_category_id&fleet_category_name=$fleet_category_name");
+                }
+                else 
+                {
+                    $err = "Please Try Again Or Try Later";
+                }
             } 
         }
     require_once('partials/_head.php');
