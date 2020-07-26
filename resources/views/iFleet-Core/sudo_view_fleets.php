@@ -72,7 +72,7 @@
                 <tbody>
                     <?php
                         $fleet_category_id  = $_GET['fleet_category_id'];
-                        $ret="SELECT * FROM  iFleet_category WHERE category_id = '$fleet_category_id'"; 
+                        $ret="SELECT * FROM  iFleet_fleet WHERE fleet_category_id = '$fleet_category_id'"; 
                         $stmt= $mysqli->prepare($ret) ;
                         $stmt->execute();
                         $res=$stmt->get_result();
@@ -87,9 +87,8 @@
                                 </a>
                             </td>
                             <td><?php echo $fleet->fleet_name;?></td>
-                            <td><?php echo $fleet->vehicle_numbers;?></td>
+                            <td><?php echo $fleet->vehicle_numbers;?> Automobiles</td>
                             <th><?php echo $fleet->fleet_staff_name;?></th>
-
                             <td>
                                 <a class="badge badge-success" href="sudo_view_single_fleet.php?fleet_id=<?php echo $fleet->fleet_id;?>">
                                     <i class="fas fa-eye"></i><i class="fas fa-car"></i>
