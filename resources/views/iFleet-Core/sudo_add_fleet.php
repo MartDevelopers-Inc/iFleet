@@ -19,7 +19,6 @@
                 $error = 1;
                 $err="Fleet Cannot have No Vehicles";
             }                        
-            
             $fleet_code = $_POST['fleet_code'];
             $fleet_category_id = $_GET['fleet_category_id'];
             $fleet_category_name = $_GET['fleet_category_name'];
