@@ -12,6 +12,12 @@
             }else{
                 $error = 1;
                 $err="Fleet  Name Cannot Be Empty";
+            }
+            if (isset($_POST['vehicle_numbers']) && !empty($_POST['vehicle_numbers'])) {
+                $vehicle_numbers=mysqli_real_escape_string($mysqli,trim($_POST['vehicle_numbers']));
+            }else{
+                $error = 1;
+                $err="Fleet Cannot have No Vehicles";
             }                        
             
             $fleet_code = $_POST['fleet_code'];
