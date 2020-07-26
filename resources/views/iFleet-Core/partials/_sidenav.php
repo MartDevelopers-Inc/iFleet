@@ -99,19 +99,6 @@
                     <p>Manage Routes</p>
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a href="sudo_assign_fleet_route.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Assign Fleet</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="sudo_manage_assign_fleet_route.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Manage Assigns</p>
-                    </a>
-                </li>
                 </ul>
             </li>
             <!-- ./ Fleet Routes -->
@@ -148,6 +135,25 @@
                         <a href="sudo_manage_fleet.php" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Manage Fleet </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sudo_manage_fleet_vehicles.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Manage Vehicles</p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="sudo_assign_fleet_route.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Assign Fleet</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sudo_manage_assign_fleet_route.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Manage Assigns</p>
                         </a>
                     </li>
                 </ul>
