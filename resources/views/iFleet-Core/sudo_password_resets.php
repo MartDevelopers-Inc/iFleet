@@ -96,9 +96,9 @@
                                 if($reset->reset_status == 'Pending')
                                 {
                                     echo "
-                                <a class='badge badge-success' href='sudo_update_password.php?email=$reset->reset_email&reset_status=Approved'>
-                                    <i class='fas fa-user-edit'></i>
-                                    Update Password
+                                <a class='badge badge-success' href='sudo_update_password.php?reset_status=Approved&reset_id=$reset->reset_id'>
+                                    <i class='fas fa-user-lock'></i>
+                                    Reset Password
                                 </a>";
                                 }
                                 else
