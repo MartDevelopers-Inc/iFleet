@@ -11,8 +11,18 @@
             $err="Empty Fields Not Allowed";
         }
         else
-        {                         
-            
+        {
+            $v_reg_no = $_POST['v_reg_no'];
+            //check if a certain vehicle with a reg number exixts
+            $sql="SELECT * FROM  iFleet_Vehicles WHERE  v_reg_no ='$v_reg_no'";
+            $res=mysqli_query($mysqli,$sql);
+            if (mysqli_num_rows($res) > 0)
+            {
+            $row = mysqli_fetch_assoc($res);
+            $err =  "Vehicle With That Registration Number Exists";
+            }
+        }
+        
             $v_reg_no = $_POST['v_reg_no'];
             $v_name = $_POST['v_name'];
             $v_fleed_id = $_POST['v_fleet_id'];
@@ -30,14 +40,13 @@
             //declare a varible which will be passed to alert function
             if($postStmt)
             {
-                $success = "Vehicle Added" && header("refresh:1; url=sudo_add_vehicle.php");
+                $success = "Vehicle Added"; // && header("refresh:1; url=sudo_add_vehicle.php");
             }
             else 
             {
                 $err = "Please Try Again Or Try Later";
             }
         } 
-      }
     require_once('partials/_head.php');
     require_once('partials/_codeGen.php');
 ?>
@@ -92,7 +101,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <label for="exampleInputEmail1">Fleet Name</label>
                                 <select name="v_fleet_name" onChange="getFleetDetails(this.value)" id="FleetName"  class="form-control">
                                     <option> Select Fleet Name</option>
@@ -113,9 +122,20 @@
                                 <label for="exampleInputEmail1">Fleet ID</label>
                                 <input type="text" name="v_fleet_id"  id="FleetID" class="form-control">
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <label for="exampleInputPassword1">Vehicle Fuel Type</label>
-                                <input type="text" class="form-control"  name="v_fuel">
+                                <select type="text" class="form-control"  name="v_fuel">
+                                    <option>Diesel</option>
+                                    <option>Petrol</option>
+                                    <option>Electric</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="exampleInputPassword1">Vehicle Status</label>
+                                <select type="text" class="form-control"  name="v_status">
+                                    <option>Operational</option>
+                                    <option>Faulty</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-row">
