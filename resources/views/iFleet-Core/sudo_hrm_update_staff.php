@@ -49,12 +49,13 @@
             $staff_passport = $_FILES["staff_passport"]["name"];
             move_uploaded_file($_FILES["staff_passport"]["tmp_name"],"assets/dist/img/staff/".$_FILES["staff_passport"]["name"]);
             $staff_bio = $_POST['staff_bio'];
-            $staff_adr = $_POST['staff_adr'];               
+            $staff_adr = $_POST['staff_adr'];   
+            $staff_acc_status = $_POST['staff_acc_status'];            
             //Insert Captured information to a database table
-            $postQuery="UPDATE  iFleet_Staff SET staff_name =?,  staff_natid =?, staff_phone =?, staff_email =?, staff_gender =?, staff_dob =?, staff_passport =?, staff_bio =?, staff_adr =? WHERE staff_number =?";
+            $postQuery="UPDATE  iFleet_Staff SET staff_acc_status =?, staff_name =?,  staff_natid =?, staff_phone =?, staff_email =?, staff_gender =?, staff_dob =?, staff_passport =?, staff_bio =?, staff_adr =? WHERE staff_number =?";
             $postStmt = $mysqli->prepare($postQuery);
             //bind paramaters
-            $rc=$postStmt->bind_param('ssssssssss', $staff_name, $staff_natid, $staff_phone, $staff_email, $staff_gender, $staff_dob, $staff_passport, $staff_bio, $staff_adr, $number);
+            $rc=$postStmt->bind_param('sssssssssss', $staff_acc_status, $staff_name, $staff_natid, $staff_phone, $staff_email, $staff_gender, $staff_dob, $staff_passport, $staff_bio, $staff_adr, $number);
             $postStmt->execute();
             //declare a varible which will be passed to alert function
             if($postStmt)
@@ -159,18 +160,30 @@
                                 <input type="text" class="form-control" value="<?php echo $staff->staff_dob;?>"  name="staff_dob" placeholder="July - 13 - 1998">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputFile">Staff Passport</label>
-                            <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" value="<?php echo $staff->staff_passport;?>" name="staff_passport" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputFile">Staff Passport</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" value="<?php echo $staff->staff_passport;?>" name="staff_passport" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="">Upload</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="">Upload</span>
-                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputPassword1">Acount Status</label>
+                                <select name="staff_acc_status" class="form-control">
+                                    <option><?php echo $staff->staff_acc_status;?></option>
+                                    <option>Active</option>
+                                    <option>Dormant</option>
+                                    <option>Disabled</option>
+                                </select>
                             </div>
                         </div>
+
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Biography</label>
