@@ -90,7 +90,7 @@
                     ?>
                         <tr>
                             <td>
-                                <a class="text_success" href="sudo_view_fuel_consumption.php?f_id=<?php echo $fuel->f_id;?>">
+                                <a class="text_success" href="sudo_update_fuel_consumption_record.php?f_id=<?php echo $fuel->f_id;?>">
                                     <?php echo $fuel->f_code;?>
                                 </a>
                             </td>
