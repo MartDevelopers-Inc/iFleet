@@ -36,32 +36,33 @@
     }
     if(isset($_POST['changePassword']))
     {
-        
-       //Change Password
+
+        //Change Password
        $error = 0;
        if (isset($_POST['old_password']) && !empty($_POST['old_password'])) {
-           $old_password=mysqli_real_escape_string($conn,trim(sha1(md5($_POST['old_password']))));
+           $old_password=mysqli_real_escape_string($mysqli,trim(sha1(md5($_POST['old_password']))));
        }else{
            $error = 1;
            $err="Old Password Cannot Be Empty";
        }
        if (isset($_POST['new_password']) && !empty($_POST['new_password'])) {
-           $new_password=mysqli_real_escape_string($conn,trim(sha1(md5($_POST['new_password']))));
+           $new_password=mysqli_real_escape_string($mysqli,trim(sha1(md5($_POST['new_password']))));
        }else{
            $error = 1;
            $err="New Password Cannot Be Empty";
        }
        if (isset($_POST['confirm_password']) && !empty($_POST['confirm_password'])) {
-           $confirm_password=mysqli_real_escape_string($conn,trim(sha1(md5($_POST['confirm_password']))));
+           $confirm_password=mysqli_real_escape_string($mysqli,trim(sha1(md5($_POST['confirm_password']))));
        }else{
            $error = 1;
            $err="Confirmation Password Cannot Be Empty";
        }
 
        if(!$error)
+
            {
                $sql="SELECT * FROM  iFleet_Login WHERE  login_user_password !='$old_password' ";
-               $res=mysqli_query($conn,$sql);
+               $res=mysqli_query($mysqli,$sql);
                if (mysqli_num_rows($res) > 0) {
                $row = mysqli_fetch_assoc($res);
                if ($old_password == $row['login_user_password'])
@@ -77,7 +78,7 @@
                $new_password = sha1(md5($_POST['new_password']));
                //Insert Captured information to a database table
                $query="UPDATE iFleet_Login SET  login_user_password=? WHERE login_id =?";
-               $stmt = $conn->prepare($query);
+               $stmt = $mysqli->prepare($query);
                //bind paramaters
                $rc=$stmt->bind_param('si', $new_password, $login_id);
                $stmt->execute();
@@ -91,7 +92,7 @@
                {
                    $err = "Please Try Again Or Try Later";
                }
-           }
+            }
         }
     }
     require_once('partials/_head.php');
