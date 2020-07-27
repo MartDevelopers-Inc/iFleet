@@ -6,7 +6,7 @@
     
     if(isset($_POST['add_shipment']))
     {
-        if ( empty($_POST["s_code "]) || empty($_POST['v_name']) || empty($_POST['vehicle_reg_no']) ) 
+        if ( empty($_POST["s_code"]) || empty($_POST["s_name"]) ||  empty($_POST['vehicle_name']) || empty($_POST['vehicle_reg_no']) ) 
         {
             $err="Empty Fields Not Allowed";
         }
@@ -27,7 +27,7 @@
             $s_code = $_POST['s_code'];
             $s_name = $_POST['s_name'];
             $s_status = $_POST['s_status'];
-            $vehicle_reg_no  = $_POST['vehicle_reg_no '];
+            $vehicle_reg_no  = $_POST['vehicle_reg_no'];
             $vehicle_name = $_POST['vehicle_name'];
             $s_desc = $_POST['s_desc'];
 
@@ -124,7 +124,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputPassword1">Shipment Status</label>
-                                <select type="text" class="form-control"  name="v_fuel">
+                                <select type="text" class="form-control"  name="s_status">
                                     <option>Pending</option>
                                     <option>On Transit</option>
                                     <option>Delivered</option>
@@ -133,7 +133,7 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <label for="exampleInputEmail1">Shipment Description</label>
+                                <label for="exampleInputEmail1">Shipment Description <small class="text-danger"> *Include departure time, arrival time, client address and details of the shipment</small></label>
                                 <textarea type="text" rows="5" name="s_desc"  class="form-control" ></textarea>
                             </div>
                         </div>

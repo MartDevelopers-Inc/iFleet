@@ -36,7 +36,6 @@ if(!empty($_POST["staff_Name"]))
 
 if(!empty($_POST["FleetName"])) 
 {
-    //get staff n
     $id=$_POST['FleetName'];
     $stmt = $DB_con->prepare("SELECT * FROM  iFleet_fleet WHERE fleet_name = :id");
     $stmt->execute(array(':id' => $id));
@@ -50,4 +49,18 @@ if(!empty($_POST["FleetName"]))
 }
 }
 
+if(!empty($_POST["whipRegNo"])) 
+{
+    $id=$_POST['whipRegNo'];
+    $stmt = $DB_con->prepare("SELECT * FROM  iFleet_Vehicles WHERE v_reg_no = :id");
+    $stmt->execute(array(':id' => $id));
+?>
+<?php
+    while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+{
+?>
+<?php echo htmlentities($row['v_name']); ?>
+<?php
+}
+}
 

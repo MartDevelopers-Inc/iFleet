@@ -97,5 +97,17 @@
                 }
             })
         }
+        function getWhipDetails(val)
+        {
+            $.ajax({
+                type: "POST",
+                url: "ajax.php",
+                data: "whipRegNo="+val,
+                success: function(data)
+                {
+                    $('#whipName').val(data);
+                }
+            })
+        }
     </script>  
 </head>

@@ -72,8 +72,8 @@
                   <th>Shipment No.</th>
                   <th>Name</th>
                   <th>Status</th>
-                  <th>Vehicle Name</th>
-                  <th>Vehicle Reg No.</th>
+                  <th>Shipping Vehicle Name</th>
+                  <th>Shipping Vehicle Reg No.</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -101,7 +101,7 @@
                                   {
                                       echo 
                                       "
-                                          <span class='text-success'>$shipments->s_status</span>
+                                          <span class='text-success'>$shipment->s_status</span>
                                       
                                       ";
                                   }
@@ -109,14 +109,14 @@
                                   {
                                       echo 
                                       "
-                                          <span class='text-primary'>$shipments->s_status</span>
+                                          <span class='text-primary'>$shipment->s_status</span>
                                       ";
                                   }
                                   else
                                   {
                                     echo 
                                     "
-                                        <span class='text-danger'>$shipments->s_status</span>
+                                        <span class='text-danger'>$shipment->s_status</span>
                                     ";
                                   }
                               ?>  
@@ -128,7 +128,7 @@
                                     <i class="fas fa-user-edit"></i>
                                     Update Record
                                 </a>
-                                <a class="badge badge-danger" href="sudo_vehicles.php?delete=<?php echo $shipment->s_id;?>">
+                                <a class="badge badge-danger" href="sudo_shipments.php?delete=<?php echo $shipment->s_id;?>">
                                     <i class="fas fa-trash"></i>
                                     Delete
                                 </a>
