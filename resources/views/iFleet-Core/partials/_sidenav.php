@@ -143,28 +143,13 @@
             <!-- ./ Shipments -->
             
             <!-- Fuel Consumption -->
-            <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-gas-pump"></i>
+            <li class="nav-item">
+                <a href="sudo_fuel_management.php" class="nav-link">
+                <i class="nav-icon fas fas fas fa-gas-pump"></i>
                 <p>
-                    Fuel Consumption
-                    <i class="fas fa-angle-left right"></i>
+                    Fuel Management
                 </p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="sudo_gas_stations.php" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Gas Stations</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sudo_fuel_consumptions.php" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Consumptions</p>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <!-- ./ Fuel Consumption-->
 

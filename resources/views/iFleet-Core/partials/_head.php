@@ -108,6 +108,15 @@
                     $('#whipName').val(data);
                 }
             })
+            $.ajax({
+                type: "POST",
+                url: "ajax.php",
+                data: "shipmentWhipReg="+val,
+                success: function(data)
+                {
+                    $('#VehicleName').val(data);
+                }
+            })
         }
     </script>  
 </head>
