@@ -35,35 +35,14 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
        
             <!--Diffrent Dashboards -->
-                <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link ">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Dashboards
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="sudo_dashboard.php" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Main Dashboard</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sudo_analytics_dashboad.php" class="nav-link ">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Analytics Dashboard</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sudo_hrm_dasboard.php" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>HRM Dashboard</p>
-                        </a>
-                    </li>
-                    </ul>
-                </li>
+            <li class="nav-item">
+                <a href="sudo_dashboard.php" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                    Dashboard
+                </p>
+                </a>
+            </li>
             <!-- ./ End Dashboard -->
 
             <!--HRM-->
@@ -137,28 +116,20 @@
                         <p>Manage Fleet </p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="sudo_manage_fleet_vehicles.php" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Manage Vehicles</p>
-                        </a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a href="sudo_assign_fleet_route.php" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Assign Fleet</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sudo_manage_assign_fleet_route.php" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Manage Assigns</p>
-                        </a>
-                    </li>
                 </ul>
             </li>
             <!-- ./ Fleet -->
+
+            <!-- Vehicles -->
+            <li class="nav-item">
+                <a href="sudo_vehicles.php" class="nav-link">
+                <i class="nav-icon fas fa-truck-moving"></i>
+                <p>
+                    Vehicles
+                </p>
+                </a>
+            </li>
+            <!-- ./ Vehicles -->
 
             <!-- Shipments -->
             <li class="nav-item has-treeview">
