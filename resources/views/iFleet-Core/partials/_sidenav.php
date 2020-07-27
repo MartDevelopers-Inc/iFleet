@@ -143,28 +143,13 @@
             <!-- ./ Shipments -->
             
             <!-- Fuel Consumption -->
-            <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-gas-pump"></i>
+            <li class="nav-item">
+                <a href="sudo_fuel_management.php" class="nav-link">
+                <i class="nav-icon fas fas fas fa-gas-pump"></i>
                 <p>
-                    Fuel Consumption
-                    <i class="fas fa-angle-left right"></i>
+                    Fuel Management
                 </p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="sudo_gas_stations.php" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Gas Stations</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sudo_fuel_consumptions.php" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Consumptions</p>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <!-- ./ Fuel Consumption-->
 
@@ -182,7 +167,7 @@
                 <a href="sudo_advanced_reporting_fleet_routes.php" class="nav-link">
                 <i class="nav-icon far fa-image"></i>
                 <p>
-                    Fleet Routes Records
+                    Fleet Routes 
                 </p>
                 </a>
             </li>
@@ -190,7 +175,7 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-truck"></i>
                     <p>
-                        Fleets Records
+                        Fleets
                         <i class="fas fa-angle-left right"></i>
                     </p>
                     </a>
@@ -207,54 +192,31 @@
                         <p>Fleet Records </p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="sudo_advanced_reporting_vehicles_records.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Vehicles  </p>
+                        </a>
+                    </li>
                 </ul>
             </li>
-            <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-shipping-fast"></i>
-                    <p>
-                        Shipments Records
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
+            <li class="nav-item">
+                <a href="sudo_advanced_reporting_fleet_routes.php" class="nav-link">
+                <i class="nav-icon fas fa-shipping-fast"></i>
+                <p>
+                    Shipments 
+                </p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="sudo_advanced_reporting_incomming_shipments.php" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Incomming Shipments</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sudo_advanced_reporting_outgoing_shipments.php" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>OutGoing Shipments</p>
-                        </a>
-                    </li>
-                </ul>
             </li>
-            <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-oil-can"></i>
-                    <p>
-                        Fuel Records 
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
+            <li class="nav-item">
+                <a href="sudo_advanced_reporting_fuel_consumption.php" class="nav-link">
+                <i class="nav-icon fas fa-gas-pump"></i>
+                <p>
+                    Fuel Consumption
+                </p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="sudo_advanced_reporting_gas_stations.php" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Gas Stations</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sudo_advanced_reporting_fuel_consumption.php" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Fuel Consumption</p>
-                        </a>
-                    </li>
-                </ul>
             </li>
+            
             <!-- ./ Advanced Reporting -->
             <li class="nav-header">System Settings</li>
             <li class="nav-item">
