@@ -21,7 +21,7 @@
             $postQuery="UPDATE iFleet_Route SET  route_name =?, route_description =? WHERE route_code =? ";
             $postStmt = $mysqli->prepare($postQuery);
             //bind paramaters
-            $rc=$postStmt->bind_param('sss',  $route_name, $route_description, $route_code);
+            $rc=$postStmt->bind_param('sss',  $route_name, $route_description, $code);
             $postStmt->execute();
             //declare a varible which will be passed to alert function
             if($postStmt)
