@@ -22,7 +22,7 @@
             $err =  "Vehicle With That Registration Number Exists";
             }
         }
-        
+
             $v_reg_no = $_POST['v_reg_no'];
             $v_name = $_POST['v_name'];
             $v_fleed_id = $_POST['v_fleet_id'];
@@ -32,15 +32,15 @@
             $v_desc = $_POST['v_desc'];
 
             //Insert Captured information to a database table
-            $postQuery="INSERT INTO iFleet_Vehicles (v_reg_no, v_name, v_fleet_id, v_fleet_name, v_fuel, v_desc) VALUES (?,?,?,?,?,?) ";
+            $postQuery="INSERT INTO iFleet_Vehicles (v_reg_no, v_name, v_fleet_id, v_fleet_name, v_fuel, v_desc, v_status) VALUES (?,?,?,?,?,?,?) ";
             $postStmt = $mysqli->prepare($postQuery);
             //bind paramaters
-            $rc=$postStmt->bind_param('ssssss', $v_reg_no, $v_name, $v_fleed_id, $v_fleet_name, $v_fuel, $v_desc);
+            $rc=$postStmt->bind_param('sssssss', $v_reg_no, $v_name, $v_fleed_id, $v_fleet_name, $v_fuel, $v_desc, $v_status);
             $postStmt->execute();
             //declare a varible which will be passed to alert function
             if($postStmt)
             {
-                $success = "Vehicle Added"; // && header("refresh:1; url=sudo_add_vehicle.php");
+                $success = "Vehicle Added" && header("refresh:1; url=sudo_add_vehicle.php");
             }
             else 
             {

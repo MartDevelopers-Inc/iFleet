@@ -96,9 +96,10 @@
                             </td>
                             <td><?php echo $vehicle->v_name;?></td>
                             <td><?php echo $vehicle->v_fuel;?></td>
+                            <td><?php echo $vehicle->v_fleet_name;?></td>
                             <td>
                               <?php
-                                  if($staff->v_status == 'Active')
+                                  if($vehicle->v_status == 'Operational')
                                   {
                                       echo 
                                       "
