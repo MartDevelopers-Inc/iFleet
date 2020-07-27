@@ -132,28 +132,13 @@
             <!-- ./ Vehicles -->
 
             <!-- Shipments -->
-            <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-luggage-cart"></i>
+            <li class="nav-item">
+                <a href="sudo_shipments.php" class="nav-link">
+                <i class="nav-icon fas fas fa-luggage-cart"></i>
                 <p>
                     Shipments
-                    <i class="fas fa-angle-left right"></i>
                 </p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="sudo_add_shipment.php" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Add Shipment</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sudo_manage_shipment.php" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Manage Shipments</p>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <!-- ./ Shipments -->
             
