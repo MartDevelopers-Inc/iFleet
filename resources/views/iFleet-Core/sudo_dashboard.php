@@ -164,7 +164,6 @@
                                             <th>Fleet Name</th>
                                             <th>Fleet Category Name</th>
                                             <th>Staff Incharge</th>
-                                            <th>No Of Automobiles</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -182,9 +181,6 @@
                                                     <td><?php echo $fleet->fleet_name;?></td>
                                                     <td><span class="badge badge-success"><?php echo $fleet->fleet_category_name;?></span></td>
                                                     <td><?php echo $fleet->fleet_staff_name;?></td>
-                                                    <td>
-                                                        <div class="sparkbar" data-color="#00a65a" data-height="20"><?php echo $fleet->vehicle_numbers;?> Vehicles</div>
-                                                    </td>
                                                 </tr>
                                             <?php }?>
                                         </tbody>
