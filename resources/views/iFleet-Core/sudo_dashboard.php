@@ -96,7 +96,7 @@
                         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-pallet"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">Total Handled Shipments</span>
-                            <span class="info-box-number">2,000</span>
+                            <span class="info-box-number"><?php echo $shipments;?></span>
                         </div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-dolly-flatbed"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">Pending Shipments</span>
-                            <span class="info-box-number">2,000</span>
+                            <span class="info-box-number"><?php echo $pendingshipments;?></span>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-shipping-fast"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">On Transit Shipments</span>
-                            <span class="info-box-number">2,000</span>
+                            <span class="info-box-number"><?php echo $onTransitshipments;?></span>
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-dolly"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">Delivered Shipments</span>
-                            <span class="info-box-number">2,000</span>
+                            <span class="info-box-number"><?php echo $deliveredShipments;?></span>
                         </div>
                     </div>
                 </div>
@@ -211,28 +211,59 @@
                                     <table class="table m-0">
                                         <thead>
                                         <tr>
-                                            <th>Order ID</th>
-                                            <th>Item</th>
-                                            <th>Status</th>
-                                            <th>Popularity</th>
+                                            <th>Shipment Number</th>
+                                            <th>Shipment Name</th>
+                                            <th>Shipment Status</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                                <td>Call of Duty IV</td>
-                                                <td><span class="badge badge-success">Shipped</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                                //Fetch all shipments
+                                                $ret="SELECT * FROM  iFleet_Shipments"; 
+                                                $stmt= $mysqli->prepare($ret) ;
+                                                $stmt->execute();
+                                                $res=$stmt->get_result();
+                                                $cnt=1;
+                                                while($shipment=$res->fetch_object())
+                                                {
+                                            ?>
+                                                <tr>
+                                                    <td><a href="sudo_view_shipment.php?shipment_id=<?php echo $shipment->s_id;?>"><?php echo $shipment->s_code;?></a></td>
+                                                    <td><?php echo $shipment->s_name;?></td>
+                                                    <td>
+                                                    <?php
+                                                        if($shipment->s_status == 'Delivered')
+                                                        {
+                                                            echo 
+                                                            "
+                                                                <span class='badge badge-success'>$shipment->s_status</span>
+                                                            
+                                                            ";
+                                                        }
+                                                        elseif($shipment->s_status == 'On Transit')
+                                                        {
+                                                            echo 
+                                                            "
+                                                                <span class='badge badge-primary'>$shipment->s_status</span>
+                                                            ";
+                                                        }
+                                                        else
+                                                        {
+                                                            echo 
+                                                            "
+                                                                <span class='badge badge-danger'>$shipment->s_status</span>
+                                                            ";
+                                                        }
+                                                    ?>  
+                                                </tr>
+                                            <?php }?>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                             <div class="card-footer clearfix">
-                                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Add New Shipment Record</a>
-                                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Shipments</a>
+                                <a href="sudo_add_shipment.php" class="btn btn-sm btn-info float-left">Add New Shipment Record</a>
+                                <a href="sudo_shipments.php" class="btn btn-sm btn-secondary float-right">View All Shipments</a>
                             </div>
                         </div>
                     </div>
