@@ -222,7 +222,7 @@
             <!-- System Settings -->
             <li class="nav-header">System Settings</li>
             <li class="nav-item">
-                <a href="sudo_password_resets.php" class="nav-link">
+                <a href="sudo_login_permissions_resets.php" class="nav-link">
                 <i class="nav-icon fas fa-user-cog"></i>
                 <p>
                     Login Permissions
