@@ -85,5 +85,17 @@
             });
             
         }
+        function getFleetDetails(val)
+        {
+            $.ajax({
+                type: "POST",
+                url: "ajax.php",
+                data: "FleetName="+val,
+                success: function(data)
+                {
+                    $('#FleetID').val(data);
+                }
+            })
+        }
     </script>  
 </head>

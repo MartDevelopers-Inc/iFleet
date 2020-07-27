@@ -34,4 +34,20 @@ if(!empty($_POST["staff_Name"]))
 }
 }
 
+if(!empty($_POST["FleetName"])) 
+{
+    //get staff n
+    $id=$_POST['FleetName'];
+    $stmt = $DB_con->prepare("SELECT * FROM  iFleet_fleet WHERE fleet_name = :id");
+    $stmt->execute(array(':id' => $id));
+?>
+<?php
+    while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+{
+?>
+<?php echo htmlentities($row['fleet_id']); ?>
+<?php
+}
+}
+
 
