@@ -13,7 +13,7 @@
             else
             {                         
                 $login_user_password = sha1(md5($_POST['login_user_password']));
-                $login_user_email = $_GET['login_user_email'];
+                $login_user_email = $_GET['email'];
                 $login_username = $_POST['login_username'];
                 
                 //Insert Captured information to a database table
@@ -23,7 +23,7 @@
                 $rc=$postStmt->bind_param('sss',  $login_username, $login_user_password, $login_user_email);
                 $postStmt->execute();
                 //declare a varible which will be passed to alert function
-                if($postStmt && $mailStmt)
+                if($postStmt)
                 {
                     $success = "Allowed To Log In" && header("refresh:1; url=sudo_allow_staff_login.php");
                 }
@@ -50,7 +50,7 @@
         $stmt= $mysqli->prepare($ret) ;
         $stmt->execute();
         $res=$stmt->get_result();
-        while($reset=$res->fetch_object())
+        while($staff=$res->fetch_object())
         {
     ?>
   <!-- Content Wrapper. Contains page content -->
