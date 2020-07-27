@@ -94,7 +94,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Fleet Name</label>
-                                <select name="v_fleet_name" onChange="getFleetDetails(this.value)" id="fleetName"  class="form-control">
+                                <select name="v_fleet_name" onChange="getFleetDetails(this.value)" id="FleetName"  class="form-control">
                                     <option> Select Fleet Name</option>
                                     <?php 
                                         $ret="SELECT * FROM  iFleet_fleet"; 
@@ -109,10 +109,9 @@
                                     <?php }?>
                                 </select>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6" style="display:none">
                                 <label for="exampleInputEmail1">Fleet ID</label>
-                                <input type="text" name="v_fleet_id"  id="fleetID" class="form-control">
-
+                                <input type="text" name="v_fleet_id"  id="FleetID" class="form-control">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputPassword1">Vehicle Fuel Type</label>
