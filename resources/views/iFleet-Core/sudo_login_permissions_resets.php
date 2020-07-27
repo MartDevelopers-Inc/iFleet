@@ -100,7 +100,7 @@
                               ?>  
                             </td>
                             <td>
-                                <a class="badge badge-success" href="sudo_allow_staff_login.php?staff_id=<?php echo $staff->staff_id;?>&email=<?php echo $staff->staff_email;?>">
+                                <a class="badge badge-success" href="sudo_allow_staff_login.php?staff_id=<?php echo $staff->staff_id;?>&email=<?php echo $staff->staff_email;?>&allow_login=1">
                                     <i class="fas fa-user-check"></i>
                                     Allow Login
                                 </a>

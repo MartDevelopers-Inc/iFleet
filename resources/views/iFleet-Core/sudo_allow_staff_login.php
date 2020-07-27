@@ -15,17 +15,23 @@
                 $login_user_password = sha1(md5($_POST['login_user_password']));
                 $login_user_email = $_GET['email'];
                 $login_username = $_POST['login_username'];
+                $staff_id = $_GET['staff_id'];
+                $allow_login = $_GET['allow_login'];
                 
                 //Insert Captured information to a database table
                 $postQuery="INSERT INTO iFleet_Login (login_username, login_user_password, login_user_email) VALUES (?,?,?)";
+                $staffQry = "UPDATE iFleet_Staff SET allow_login =? WHERE staff_id =?";
                 $postStmt = $mysqli->prepare($postQuery);
+                $staffStmt = $mysqli->prepare($staffQry);
                 //bind paramaters
                 $rc=$postStmt->bind_param('sss',  $login_username, $login_user_password, $login_user_email);
+                $rc=$staffStmt->bind_param('si', $allow_login, $staff_id);
                 $postStmt->execute();
+                $staffStmt->execute();
                 //declare a varible which will be passed to alert function
-                if($postStmt)
+                if($postStmt  && $staffStmt)
                 {
-                    $success = "Allowed To Log In" && header("refresh:1; url=sudo_allow_staff_login.php");
+                    $success = "Allowed To Log In" && header("refresh:1; url=sudo_login_permissions_resets.php");
                 }
                 else 
                 {
