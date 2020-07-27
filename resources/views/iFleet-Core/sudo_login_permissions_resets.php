@@ -4,24 +4,6 @@
     include('config/checklogin.php');
     check_login();
 
-    //Delete Staff
-    if(isset($_GET['delete']))
-    {
-          $id=intval($_GET['delete']);
-          $adn="DELETE FROM  iFleet_Staff  WHERE  staff_id = ?";
-          $stmt= $mysqli->prepare($adn);
-          $stmt->bind_param('i',$id);
-          $stmt->execute();
-          $stmt->close();	 
-         if($stmt)
-         {
-             $success = "Deleted" && header("refresh:1; url=sudo_hrm.php");
-         }
-         else
-         {
-             $err = "Try Again Later";
-         }
-      }
     require_once('partials/_head.php');
 ?>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -39,12 +21,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Human Resource Management</h1>
+            <h1>Allow Login</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="sudo_dashboard.php">Dashboard</a></li>
-              <li class="breadcrumb-item active">HRM</li>
+              <li class="breadcrumb-item active">Login Permissions</li>
             </ol>
           </div>
         </div>
@@ -56,14 +38,6 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-                <a class="btn btn-outline-success" href="sudo_hrm_add_staff.php">
-                    <span>
-                        <i class="fas fa-user-plus"></i>
-                    </span>
-                    Add New Staff
-                </a>
-            </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -91,7 +65,7 @@
                     ?>
                         <tr>
                             <td>
-                                <a class="text_success" href="sudo_hrm_view_profile.php?number=<?php echo $staff->staff_number;?>">
+                                <a class="text_success">
                                     <?php echo $staff->staff_number;?>
                                 </a>
                             </td>
@@ -126,16 +100,11 @@
                               ?>  
                             </td>
                             <td>
-                                <a class="badge badge-warning" href="sudo_hrm_update_staff.php?number=<?php echo $staff->staff_number;?>">
-                                    <i class="fas fa-user-edit"></i>
-                                    Update
-                                </a>
-                                <a class="badge badge-danger" href="sudo_hrm.php?delete=<?php echo $staff->staff_id;?>">
-                                    <i class="fas fa-trash"></i>
-                                    Delete
+                                <a class="badge badge-success" href="sudo_allow_staff_login.php?email=<?php echo $staff->staff_email;?>">
+                                    <i class="fas fa-user-check"></i>
+                                    Allow Login
                                 </a>
                             </td>
-
                         </tr>
                     <?php }?>
                 </tbody>
