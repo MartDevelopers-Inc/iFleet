@@ -104,7 +104,7 @@
                                 else
                                 {
                                     echo "
-                                <a class='badge badge-success' href='sudo_update_password.php?email=$reset->reset_email'>
+                                <a class='badge badge-success' href='mailto:$reset->reset_email?subject=Password Reset&body=Hello $reset->reset_email, This is your new password $reset->reset_code kindly change it after logging in. Session Token $reset->reset_token'>
                                     <i class='fas fa-envelope'></i>
                                     Send Mail
                                 </a> ";

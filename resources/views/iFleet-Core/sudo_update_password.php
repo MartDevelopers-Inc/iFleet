@@ -4,15 +4,15 @@
     include('config/checklogin.php');
     check_login();
     
-    if(isset($_POST['update_fleet']))
+    if(isset($_POST['resetPassword']))
     {
-            if ( empty($_POST["fleet_name"]) || empty($_POST["vehicle_numbers"]) ) 
+            if ( empty($_POST["login_user_password"]) || empty($_POST["login_user_email"]) ) 
             {
                 $err="Blank Values Not Accepted";
             }
             else
             {                         
-                $login_user_password = $_POST['login_user_password'];
+                $login_user_password = sha1(md5($_POST['login_user_password']));
                 $reset_status = $_GET['reset_status'];
                 $reset_id = $_GET['reset_id'];
                 $login_user_email = $_POST['login_user_email'];
@@ -24,7 +24,7 @@
                 $mailStmt = $mysqli->prepare($mailQry);
                 //bind paramaters
                 $rc=$postStmt->bind_param('ss',  $login_user_password, $login_user_email);
-                $rc = $mailQry->bind_param('si', $reset_status, $reset_id);
+                $rc = $mailStmt->bind_param('si', $reset_status, $reset_id);
                 $postStmt->execute();
                 $mailStmt->execute();
                 //declare a varible which will be passed to alert function
@@ -101,7 +101,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <button type="submit" name="reset" class="btn btn-outline-primary"><i class="fas fa-save"></i> Save</button>
+                        <button type="submit" name="resetPassword" class="btn btn-outline-primary"><i class="fas fa-save"></i> Save</button>
                     </div>
                 </form>
             </div>
