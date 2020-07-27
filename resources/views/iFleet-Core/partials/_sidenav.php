@@ -218,7 +218,25 @@
             </li>
             
             <!-- ./ Advanced Reporting -->
+
+            <!-- System Settings -->
             <li class="nav-header">System Settings</li>
+            <li class="nav-item">
+                <a href="sudo_login_permissions_resets.php" class="nav-link">
+                <i class="nav-icon fas fa-user-cog"></i>
+                <p>
+                    Login Permissions
+                </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="sudo_password_resets.php" class="nav-link">
+                <i class="nav-icon fas fa-lock"></i>
+                <p>
+                    Password Resets
+                </p>
+                </a>
+            </li>
             <li class="nav-item">
                 <a href="sudo_log_out.php" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -227,6 +245,7 @@
                 </p>
                 </a>
             </li>
+            <!-- ./ System Settings -->
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
