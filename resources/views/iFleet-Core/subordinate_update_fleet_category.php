@@ -24,7 +24,7 @@
             //declare a varible which will be passed to alert function
             if($postStmt)
             {
-                $success = "Fleet Category Upated " && header("refresh:1; url=sudo_manage_fleet_categories.php");
+                $success = "Fleet Category Upated " && header("refresh:1; url=subordinate_manage_fleet_categories.php");
             }
             else 
             {
