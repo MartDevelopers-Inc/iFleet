@@ -15,14 +15,18 @@
       $rs=$stmt->fetch();
       $_SESSION['login_id'] = $login_id;
       if($rs && $login_user_permission == '1')
-          {
-              //if its sucessfull
-              header("location:sudo_dashboard.php");
-          }
+      {
+        //if its sucessfull
+        header("location:sudo_dashboard.php");
+      }
+      elseif($rs  && $login_user_permission == '0' )
+      {
+        $err ="Permission Access Denied You To Access This Module";
+      }
       else
-          {
-              $err = "Access Denied Please Check Your Credentials And Access Clearance Level Permissions";
-          }
+      {
+        $err = "Incorrect Authentication Credentials ";
+      }
    }
 
   require_once('partials/_head.php');

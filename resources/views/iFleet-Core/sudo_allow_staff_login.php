@@ -99,14 +99,16 @@
                                 <label for="exampleInputEmail1">Email</label>
                                 <input type="text" name="login_user_email" value="<?php echo $staff ->staff_email;?>"  class="form-control">
                             </div>
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Password</label>
                                 <input type="text" name="login_user_password"   class="form-control">
                             </div>
-                            <hr>
-                            <div class="form-check">
-                              <input class="form-check-input" name="login_user_permission" type="checkbox" value="1" >
-                              <label class="form-check-label">Give Administrative Permissions</label>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Give Administrative Permissions</label>
+                                <select type="text" name="login_user_permission"   class="form-control">
+                                  <option value="1">Yes</option>
+                                  <option value="0">No</option>
+                                </select>
                             </div>
                         </div>
                     </div>
