@@ -145,7 +145,7 @@
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="assets/dist/img/user4-128x128.jpg"
+                       src="assets/dist/img/admin.png"
                        alt="User profile picture">
                 </div>
                 <h3 class="profile-username text-center"><?php echo $user->login_username;?></h3>
