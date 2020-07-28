@@ -12,7 +12,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-    <?php require_once('partials/_sidenav.php');?>
+    <?php require_once('partials/_staffnav.php');?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
