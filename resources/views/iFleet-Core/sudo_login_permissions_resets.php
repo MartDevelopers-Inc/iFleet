@@ -3,7 +3,33 @@
     include('config/config.php');
     include('config/checklogin.php');
     check_login();
-
+    if(isset($_GET['deny_login']))
+   {
+     //Deny USer login logic
+      //1. Update User table set allow login = 0
+      //2. Delete User from Login Table
+          $id=intval($_GET['deny_login']);
+          $allow_login=$_GET['allow_login'];
+          $login_user_email = $_GET['email'];
+          $adn="UPDATE  iFleet_Staff SET allow_login =?  WHERE  staff_id= ?";
+          $delete = "DELETE FROM iFleet_Login WHERE login_user_email =? ";
+          $stmt= $mysqli->prepare($adn);
+          $delStmt = $mysqli->prepare($delete);
+          $stmt->bind_param('si',$allow_login, $id );
+          $delStmt->bind_param('s', $login_user_email);
+          $stmt->execute();
+          $delStmt->execute();
+          $stmt->close();	 
+          $delStmt->close();
+          if($stmt && $delStmt)
+          {
+              $success = "Login Disabled" && header("refresh:1; url=sudo_login_permissions_resets.php");
+          }
+          else
+          {
+              $err = "Try Again Later";
+          }
+    }
     require_once('partials/_head.php');
 ?>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -48,7 +74,7 @@
                   <th>ID No.</th>
                   <th>Phone</th>
                   <th>Email</th>
-                  <th>Status</th>
+                  <th>Account Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -100,10 +126,31 @@
                               ?>  
                             </td>
                             <td>
-                                <a class="badge badge-success" href="sudo_allow_staff_login.php?staff_id=<?php echo $staff->staff_id;?>&email=<?php echo $staff->staff_email;?>&allow_login=1">
-                                    <i class="fas fa-user-check"></i>
-                                    Allow Login
+                            <?php
+                              if($staff->allow_login == '1')
+                              {
+                                echo 
+                                "
+                                <a class='badge badge-danger' href='sudo_login_permissions_resets.php?deny_login=$staff->staff_id&email=$staff->staff_email&allow_login=0'>
+                                    <i class='fas fa-user-times'></i>
+                                    Deny Login
                                 </a>
+                                ";
+                              }
+                              else
+                              {
+                                echo 
+                                "
+                                <a class='badge badge-success' href='sudo_allow_staff_login.php?staff_id=$staff->staff_id&email=$staff->staff_email&allow_login=1'>
+                                    <i class='fas fa-user-check'></i>
+                                  Allow Login
+                                </a>
+                                ";
+                              }
+                            ?>
+
+                                
+
                             </td>
                         </tr>
                     <?php }?>
