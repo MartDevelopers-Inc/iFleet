@@ -4,7 +4,7 @@
     include('config/checklogin.php');
     check_login();
     
-    if(isset($_POST['add_route']))
+    if(isset($_POST['update_route']))
     {
           if ( empty($_POST["route_name"])) 
           {
@@ -13,26 +13,26 @@
           else
           {                        
             
-            $route_code = $_POST['route_code'];
+            $code = $_GET['code'];
             $route_name = $_POST['route_name'];
             $route_description = $_POST['route_description'];
             
             //Insert Captured information to a database table
-            $postQuery="INSERT INTO iFleet_Route (route_code, route_name, route_description) VALUES (?,?,?) ";
+            $postQuery="UPDATE iFleet_Route SET  route_name =?, route_description =? WHERE route_code =? ";
             $postStmt = $mysqli->prepare($postQuery);
             //bind paramaters
-            $rc=$postStmt->bind_param('sss', $route_code, $route_name, $route_description);
+            $rc=$postStmt->bind_param('sss',  $route_name, $route_description, $code);
             $postStmt->execute();
             //declare a varible which will be passed to alert function
             if($postStmt)
             {
-                $success = "Route Added" && header("refresh:1; url=subordinate_add_route.php");
+                $success = "Route Updated" && header("refresh:1; url=subordinate_manage_routes.php");
             }
             else 
             {
                 $err = "Please Try Again Or Try Later";
             }
-          }
+          } 
         }
     require_once('partials/_head.php');
     require_once('partials/_codeGen.php');
@@ -44,7 +44,17 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-    <?php require_once('partials/_staffnav.php');?>
+    <?php 
+        require_once('partials/_staffnav.php');
+        $code = $_GET['code'];
+        $ret="SELECT * FROM  iFleet_Route WHERE route_code = '$code'"; 
+        $stmt= $mysqli->prepare($ret) ;
+        $stmt->execute();
+        $res=$stmt->get_result();
+        $cnt=1;
+        while($route=$res->fetch_object())
+        {
+    ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -57,8 +67,8 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="subordinate_dashboard.php">Dashboard</a></li>
-              <li class="breadcrumb-item"><a href="subordinate_add_route.php">Fleet Routes</a></li>
-              <li class="breadcrumb-item active">Register New Route</li>
+              <li class="breadcrumb-item"><a href="subordinate_manage_routes.php">Fleet Routes</a></li>
+              <li class="breadcrumb-item active"><?php echo $route->route_name;?></li>
             </ol>
           </div>
         </div>
@@ -80,23 +90,23 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Route Name</label>
-                                <input type="text" name="route_name"  class="form-control">
+                                <input type="text" name="route_name" value="<?php echo $route->route_name;?>"  class="form-control">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputPassword1">Route Code |  Number</label>
-                                <input type="text" class="form-control" readonly name="route_code" value="iFleet-<?php echo $beta;?>-<?php echo $alpha;?>">
+                                <input type="text" class="form-control" readonly name="route_code" value="<?php echo $route->route_code;?>">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="exampleInputEmail1">Route Description</label>
-                                <textarea type="text" rows="5" name="route_description"  class="form-control" ></textarea>
+                                <textarea type="text" rows="5" name="route_description"  class="form-control" ><?php echo $route->route_description;?></textarea>
                             </div>
                         </div>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <button type="submit" name="add_route" class="btn btn-outline-primary"><i class="fas fa-save"></i> Save</button>
+                        <button type="submit" name="update_route" class="btn btn-outline-primary"><i class="fas fa-upload"></i> Update</button>
                     </div>
                 </form>
             </div>
@@ -108,7 +118,7 @@
       </div>
     </section>
   </div>
-  <?php require_once('partials/_footer.php');?>
+  <?php require_once('partials/_footer.php'); }?>
 </div>
 <?php require_once("partials/_scripts.php");?>
 </body>
