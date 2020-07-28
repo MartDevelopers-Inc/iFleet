@@ -1,7 +1,6 @@
 <?php
    session_start();
    include('config/config.php');
-
    //login 
    if(isset($_POST['login']))
    {
@@ -14,12 +13,12 @@
       $stmt -> bind_result($login_user_permission, $login_user_email, $login_user_password, $login_id);//bind result
       $rs=$stmt->fetch();
       $_SESSION['login_id'] = $login_id;
-      if($rs && $login_user_permission == '1')
+      if($rs && $login_user_permission == '0')
       {
         //if its sucessfull
-        header("location:sudo_dashboard.php");
+        header("location:subordinate_dashboard.php");
       }
-      elseif($rs  && $login_user_permission == '0' )
+      elseif($rs  && $login_user_permission == '1' )
       {
         $err ="Permission Access Denied You To Access This Module";
       }
@@ -51,7 +50,7 @@
             </div>
             <div class="input-group mb-3">
               <input type="password" name="login_user_password" class="form-control" placeholder="Password">
-              <input style="display:none"  type="text" name="login_user_permission"  class="form-control" value="1">
+              <input style="display:none"  type="text" name="login_user_permission"  class="form-control" value="0">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
