@@ -5,25 +5,24 @@
    //login 
    if(isset($_POST['login']))
    {
-       $login_user_email = $_POST['login_user_email'];
-       $login_user_password = sha1(md5($_POST['login_user_password']));//double encrypt to increase security
-       $stmt=$mysqli->prepare("SELECT login_user_email, login_user_password, login_id  FROM iFleet_Login  WHERE login_user_email=? AND login_user_password=?");//sql to log in user
-       $stmt->bind_param('ss',$login_user_email, $login_user_password);//bind fetched parameters
-       $stmt->execute();//execute bind
-       $stmt -> bind_result($login_user_email, $login_user_password, $login_id);//bind result
-       $rs=$stmt->fetch();
-       $_SESSION['login_id'] = $login_id;//assaign session to login id
-       
-       if($rs)
-           {
-               //if its sucessfull
-               header("location:sudo_dashboard.php");
-           }
-
-       else
-           {
-               $err = "Access Denied Please Check Your Credentials";
-           }
+      $login_user_permission = $_POST['login_user_permission'];
+      $login_user_email = $_POST['login_user_email'];
+      $login_user_password = sha1(md5($_POST['login_user_password']));//double encrypt to increase security
+      $stmt=$mysqli->prepare("SELECT login_user_permission, login_user_email, login_user_password, login_id  FROM iFleet_Login  WHERE login_user_permission =? AND login_user_email =? AND login_user_password =?");//sql to log in user
+      $stmt->bind_param('iss',  $login_user_permission, $login_user_email, $login_user_password);//bind fetched parameters
+      $stmt->execute();//execute bind 
+      $stmt -> bind_result($login_user_permission, $login_user_email, $login_user_password, $login_id);//bind result
+      $rs=$stmt->fetch();
+      $_SESSION['login_id'] = $login_id;
+      if($rs && $login_user_permission == '1')
+          {
+              //if its sucessfull
+              header("location:sudo_dashboard.php");
+          }
+      else
+          {
+              $err = "Access Denied Please Check Your Credentials And Access Clearance Level Permissions";
+          }
    }
 
   require_once('partials/_head.php');
@@ -48,6 +47,7 @@
             </div>
             <div class="input-group mb-3">
               <input type="password" name="login_user_password" class="form-control" placeholder="Password">
+              <input style="display:none"  type="text" name="login_user_permission"  class="form-control" value="1">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
@@ -55,14 +55,6 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8">
-                <div class="icheck-primary">
-                  <input type="checkbox" id="remember">
-                  <label for="remember">
-                    Remember Me
-                  </label>
-                </div>
-              </div>
               <!-- /.col -->
               <div class="col-4">
                 <button type="submit" name="login" class="btn btn-primary btn-block">Sign In</button>
