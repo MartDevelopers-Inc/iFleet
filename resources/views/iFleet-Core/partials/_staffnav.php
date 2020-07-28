@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-    <img src="assets/dist/img/AdminLTELogo.png" alt="iFleet Logo" class="brand-image img-circle elevation-3"
+    <a href="subordinate_dashbaord.php" class="brand-link">
+    <img src="assets/dist/img/logo.png" alt="iFleet Logo" class="brand-image img-circle elevation-3"
         style="opacity: .8">
     <span class="brand-text font-weight-light">iFleet</span>
     </a>
@@ -22,7 +22,7 @@
     ?>
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            <img src="assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="assets/dist/img/admin.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
             <a href="subordinate_profile.php?login_id=<?php echo $row->login_id;?>" class="d-block"><?php echo $row->login_username;?></a>
@@ -201,7 +201,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="subordinate_advanced_reporting_fleet_routes.php" class="nav-link">
+                <a href="subordinate_advanced_reporting_shipments.php" class="nav-link">
                 <i class="nav-icon fas fa-shipping-fast"></i>
                 <p>
                     Shipments 
