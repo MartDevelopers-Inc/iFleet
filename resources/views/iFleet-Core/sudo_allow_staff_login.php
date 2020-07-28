@@ -17,14 +17,15 @@
                 $login_username = $_POST['login_username'];
                 $staff_id = $_GET['staff_id'];
                 $allow_login = $_GET['allow_login'];
+                $login_user_permission = $_POST['login_user_permission'];
                 
                 //Insert Captured information to a database table
-                $postQuery="INSERT INTO iFleet_Login (login_username, login_user_password, login_user_email) VALUES (?,?,?)";
+                $postQuery="INSERT INTO iFleet_Login (login_username, login_user_password, login_user_email, login_user_permission) VALUES (?,?,?,?)";
                 $staffQry = "UPDATE iFleet_Staff SET allow_login =? WHERE staff_id =?";
                 $postStmt = $mysqli->prepare($postQuery);
                 $staffStmt = $mysqli->prepare($staffQry);
                 //bind paramaters
-                $rc=$postStmt->bind_param('sss',  $login_username, $login_user_password, $login_user_email);
+                $rc=$postStmt->bind_param('ssss',  $login_username, $login_user_password, $login_user_email, $login_user_permission);
                 $rc=$staffStmt->bind_param('si', $allow_login, $staff_id);
                 $postStmt->execute();
                 $staffStmt->execute();
@@ -101,6 +102,11 @@
                             <div class="form-group col-md-12">
                                 <label for="exampleInputEmail1">Password</label>
                                 <input type="text" name="login_user_password"   class="form-control">
+                            </div>
+                            <hr>
+                            <div class="form-check">
+                              <input class="form-check-input" name="login_user_permission" type="checkbox" value="1" >
+                              <label class="form-check-label">Give Administrative Permissions</label>
                             </div>
                         </div>
                     </div>

@@ -74,7 +74,7 @@
                   <th>ID No.</th>
                   <th>Phone</th>
                   <th>Email</th>
-                  <th>Status</th>
+                  <th>Account Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
