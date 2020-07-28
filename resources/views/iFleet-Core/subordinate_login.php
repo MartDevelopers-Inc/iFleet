@@ -68,12 +68,12 @@
           </form>
           <div class="social-auth-links text-center mb-3">
             <p>- OR -</p>
-            <a href="subordinate_login.php" class="btn btn-block btn-primary">
-              <i class="fas fa-user-tie mr-2"></i> Login As Subordinate Staff
+            <a href="index.php" class="btn btn-block btn-primary">
+              <i class="fas fa-user-shield mr-2"></i> Login As Administrator
             </a>
           </div>
           <p class="mb-1">
-            <a href="sudo_forgot_password.php">I forgot my password</a>
+            <a href="subordinate_forgot_password.php">I forgot my password</a>
           </p>
         </div>
         <!-- /.login-card-body -->
