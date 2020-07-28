@@ -17,14 +17,15 @@
                 $login_username = $_POST['login_username'];
                 $staff_id = $_GET['staff_id'];
                 $allow_login = $_GET['allow_login'];
+                $login_user_permission = $_POST['login_user_permission'];
                 
                 //Insert Captured information to a database table
-                $postQuery="INSERT INTO iFleet_Login (login_username, login_user_password, login_user_email) VALUES (?,?,?)";
+                $postQuery="INSERT INTO iFleet_Login (login_username, login_user_password, login_user_email, login_user_permission) VALUES (?,?,?,?)";
                 $staffQry = "UPDATE iFleet_Staff SET allow_login =? WHERE staff_id =?";
                 $postStmt = $mysqli->prepare($postQuery);
                 $staffStmt = $mysqli->prepare($staffQry);
                 //bind paramaters
-                $rc=$postStmt->bind_param('sss',  $login_username, $login_user_password, $login_user_email);
+                $rc=$postStmt->bind_param('ssss',  $login_username, $login_user_password, $login_user_email, $login_user_permission);
                 $rc=$staffStmt->bind_param('si', $allow_login, $staff_id);
                 $postStmt->execute();
                 $staffStmt->execute();
@@ -98,9 +99,16 @@
                                 <label for="exampleInputEmail1">Email</label>
                                 <input type="text" name="login_user_email" value="<?php echo $staff ->staff_email;?>"  class="form-control">
                             </div>
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Password</label>
                                 <input type="text" name="login_user_password"   class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Give Administrative Permissions</label>
+                                <select type="text" name="login_user_permission"   class="form-control">
+                                  <option value="1">Yes</option>
+                                  <option value="0">No</option>
+                                </select>
                             </div>
                         </div>
                     </div>
