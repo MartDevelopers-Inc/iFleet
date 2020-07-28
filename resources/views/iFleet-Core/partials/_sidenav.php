@@ -201,7 +201,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="sudo_advanced_reporting_fleet_routes.php" class="nav-link">
+                <a href="sudo_advanced_shipments.php" class="nav-link">
                 <i class="nav-icon fas fa-shipping-fast"></i>
                 <p>
                     Shipments 
